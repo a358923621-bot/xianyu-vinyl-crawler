@@ -1,0 +1,732 @@
+- generic [active] [ref=e1]:
+  - img "闲鱼站点Logo" [ref=e3]
+  - generic [ref=e4]:
+    - banner [ref=e6]:
+      - generic [ref=e7] [cursor=pointer]:
+        - img "闲鱼站点Logo" [ref=e9]
+        - link [ref=e10]:
+          - /url: https://www.goofish.com/
+          - img [ref=e11]
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - textbox [ref=e14]: 黑胶唱片
+          - button "搜索" [ref=e15] [cursor=pointer]:
+            - img [ref=e16]
+            - generic [ref=e17]: 搜索
+          - generic [ref=e18]:
+            - link "道天录" [ref=e19] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=%E9%81%93%E5%A4%A9%E5%BD%95
+            - link "genimi" [ref=e20] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=genimi
+            - link "gemini虚拟卡" [ref=e21] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=gemini%E8%99%9A%E6%8B%9F%E5%8D%A1
+            - link "kimicode" [ref=e22] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=kimicode
+            - link "kimik2" [ref=e23] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=kimik2
+            - link "图生视频" [ref=e24] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=%E5%9B%BE%E7%94%9F%E8%A7%86%E9%A2%91
+            - link "蓝海项目招聘" [ref=e25] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=%E8%93%9D%E6%B5%B7%E9%A1%B9%E7%9B%AE%E6%8B%9B%E8%81%98
+            - link "网上副业" [ref=e26] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=%E7%BD%91%E4%B8%8A%E5%89%AF%E4%B8%9A
+            - link "gemini3pro" [ref=e27] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=gemini3pro
+            - link "minimax" [ref=e28] [cursor=pointer]:
+              - /url: https://www.goofish.com/search?q=minimax
+        - generic [ref=e29] [cursor=pointer]:
+          - link "地球耐心等待的果冻" [ref=e30]:
+            - /url: https://www.goofish.com/personal
+            - img [ref=e31]
+            - generic [ref=e32]: 地球耐心等待的果冻
+          - link "订单" [ref=e34]:
+            - /url: https://www.goofish.com/bought
+            - img [ref=e36]
+            - generic [ref=e37]: 订单
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - img [ref=e40]
+        - link "网页版发闲置功能又升级啦！" [ref=e41]:
+          - /url: https://www.goofish.com/changelog
+          - generic [ref=e42] [cursor=pointer]: 网页版发闲置功能又升级啦！
+        - img [ref=e43] [cursor=pointer]
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e49]: 综合
+            - generic [ref=e52] [cursor=pointer]: 新降价
+            - generic [ref=e55]: 新发布
+            - generic [ref=e59]: 价格
+            - generic [ref=e61]:
+              - textbox "¥" [ref=e62]
+              - generic [ref=e63]: "-"
+              - textbox "¥" [ref=e64]
+              - button "确定" [disabled]
+          - generic [ref=e65]:
+            - generic [ref=e67] [cursor=pointer]:
+              - text: 区域
+              - img [ref=e68]
+            - generic [ref=e69]:
+              - button [disabled] [ref=e70]
+              - generic [ref=e72]: 1/50
+              - button [ref=e73] [cursor=pointer]
+        - generic [ref=e77]:
+          - generic [ref=e80] [cursor=pointer]: 个人闲置
+          - generic [ref=e83] [cursor=pointer]: 验货宝
+          - generic [ref=e86] [cursor=pointer]: 验号担保
+          - generic [ref=e89] [cursor=pointer]: 包邮
+          - generic [ref=e92] [cursor=pointer]: 超赞鱼小铺
+          - generic [ref=e95] [cursor=pointer]: 全新
+          - generic [ref=e98] [cursor=pointer]: 严选
+          - generic [ref=e101] [cursor=pointer]: 转卖
+        - generic [ref=e102]:
+          - 'link "精品12寸黑胶唱片LP优选，25元/张 可指定风格，店主会精 选 正常发货，拍下当天发货2张包邮 多买更划算精选5张115，特选10张220 可以混搭可以指定以下风格：流行 乡村 民谣 法语香颂 歌剧 女高音 古典 钢琴曲 提琴曲 弥撒 交响曲 摇滚 欧美 日本 昭和演歌 嘻哈 电子 轻音乐 吉他 世界音乐 电影原声 百老汇音乐剧 应客户要求，新增爵士乐，价格略贵些，每张贵五块，按需购买（大黄标，蓝调，RNB，放克，灵魂乐 CityPop同价）正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求，有少部分双盘的，算俩张可以用于装饰注意：不可指定歌手和乐队 只可指定以上风格，这就像抽盲盒一样，很有趣味性，虽说是盲盒 但店主也会尽量满足大家的需求，发货之前都会每一张聆听筛选，让每位顾客都能买到自己喜欢的音乐。有需要货的可以直接联系，价格优惠绝对正品。因黑胶唱片因为其可复制性并有调包可能，发出不接受无理由退换绝版正品老唱片，非全新唱片，完美主义勿扰#LP #老唱片胶片 ¥ 25 2794人想要 广东 卖家信用极好" [ref=e103] [cursor=pointer]':
+            - /url: https://www.goofish.com/item?id=910519815375&categoryId=126862152
+            - img [ref=e105]
+            - generic [ref=e106]:
+              - 'generic "精品12寸黑胶唱片LP优选，25元/张 可指定风格，店主会精 选 正常发货，拍下当天发货2张包邮 多买更划算精选5张115，特选10张220 可以混搭可以指定以下风格：流行 乡村 民谣 法语香颂 歌剧 女高音 古典 钢琴曲 提琴曲 弥撒 交响曲 摇滚 欧美 日本 昭和演歌 嘻哈 电子 轻音乐 吉他 世界音乐 电影原声 百老汇音乐剧 应客户要求，新增爵士乐，价格略贵些，每张贵五块，按需购买（大黄标，蓝调，RNB，放克，灵魂乐 CityPop同价）正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求，有少部分双盘的，算俩张可以用于装饰注意：不可指定歌手和乐队 只可指定以上风格，这就像抽盲盒一样，很有趣味性，虽说是盲盒 但店主也会尽量满足大家的需求，发货之前都会每一张聆听筛选，让每位顾客都能买到自己喜欢的音乐。有需要货的可以直接联系，价格优惠绝对正品。因黑胶唱片因为其可复制性并有调包可能，发出不接受无理由退换绝版正品老唱片，非全新唱片，完美主义勿扰#LP #老唱片胶片" [ref=e107]':
+                - generic [ref=e108]:
+                  - img [ref=e109]
+                  - text: "精品12寸黑胶唱片LP优选，25元/张 可指定风格，店主会精 选 正常发货，拍下当天发货2张包邮 多买更划算精选5张115，特选10张220 可以混搭可以指定以下风格：流行 乡村 民谣 法语香颂 歌剧 女高音 古典 钢琴曲 提琴曲 弥撒 交响曲 摇滚 欧美 日本 昭和演歌 嘻哈 电子 轻音乐 吉他 世界音乐 电影原声 百老汇音乐剧 应客户要求，新增爵士乐，价格略贵些，每张贵五块，按需购买（大黄标，蓝调，RNB，放克，灵魂乐 CityPop同价）正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求，有少部分双盘的，算俩张可以用于装饰注意：不可指定歌手和乐队 只可指定以上风格，这就像抽盲盒一样，很有趣味性，虽说是盲盒 但店主也会尽量满足大家的需求，发货之前都会每一张聆听筛选，让每位顾客都能买到自己喜欢的音乐。有需要货的可以直接联系，价格优惠绝对正品。因黑胶唱片因为其可复制性并有调包可能，发出不接受无理由退换绝版正品老唱片，非全新唱片，完美主义勿扰#LP #老唱片胶片"
+              - img [ref=e111]
+              - generic [ref=e112]:
+                - generic [ref=e113]:
+                  - generic [ref=e114]: ¥
+                  - generic [ref=e115]: "25"
+                - generic "2794人想要" [ref=e117]
+              - generic [ref=e118]:
+                - img [ref=e119]
+                - generic "广东" [ref=e120]:
+                  - paragraph [ref=e122]: 广东
+                - generic "卖家信用极好" [ref=e125]
+          - link "林俊杰 黑胶唱片LP 全新未拆封 12寸，33转，180g，留声机专用黑胶唱片 喜欢想要的可以直接拍下，全新包邮 上架的一般都有货，可以直接拍下 ¥ 148 ¥188 广东 百分百好评" [ref=e126] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=953691373413&categoryId=126864811
+            - img [ref=e128]
+            - generic [ref=e129]:
+              - generic "林俊杰 黑胶唱片LP 全新未拆封 12寸，33转，180g，留声机专用黑胶唱片 喜欢想要的可以直接拍下，全新包邮 上架的一般都有货，可以直接拍下" [ref=e130]:
+                - generic [ref=e131]:
+                  - img [ref=e132]
+                  - text: 林俊杰 黑胶唱片LP 全新未拆封 12寸，33转，180g，留声机专用黑胶唱片 喜欢想要的可以直接拍下，全新包邮 上架的一般都有货，可以直接拍下
+              - generic [ref=e134]:
+                - generic [ref=e135]:
+                  - generic [ref=e136]: ¥
+                  - generic [ref=e137]: "148"
+                - generic "¥188" [ref=e139]
+              - generic [ref=e140]:
+                - img [ref=e141]
+                - generic "广东" [ref=e142]:
+                  - paragraph [ref=e144]: 广东
+                - generic "百分百好评" [ref=e147]
+          - link "黑胶LP唱片莫文蔚《莫声》，1Lp，33转12寸，全新未开封 ，库存仅有2张，预购从速 唱片运输不易，快递送达时请当面签收，售出无质量问题的话，不退不换，介意者勿拍，敬请见谅 关注我，不定时0 元 领唱片 点击头像关注我，更多优惠在我发布的宝贝里 ¥ 148 ¥188 北京 卖家信用极好" [ref=e148] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=832563657983&categoryId=126864811
+            - img [ref=e150]
+            - generic [ref=e151]:
+              - generic "黑胶LP唱片莫文蔚《莫声》，1Lp，33转12寸，全新未开封 ，库存仅有2张，预购从速 唱片运输不易，快递送达时请当面签收，售出无质量问题的话，不退不换，介意者勿拍，敬请见谅 关注我，不定时0 元 领唱片 点击头像关注我，更多优惠在我发布的宝贝里" [ref=e152]:
+                - generic [ref=e153]:
+                  - img [ref=e154]
+                  - text: 黑胶LP唱片莫文蔚《莫声》，1Lp，33转12寸，全新未开封 ，库存仅有2张，预购从速 唱片运输不易，快递送达时请当面签收，售出无质量问题的话，不退不换，介意者勿拍，敬请见谅 关注我，不定时0 元 领唱片 点击头像关注我，更多优惠在我发布的宝贝里
+              - img [ref=e156]
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - generic [ref=e159]: ¥
+                  - generic [ref=e160]: "148"
+                - generic "¥188" [ref=e162]
+              - generic [ref=e163]:
+                - img [ref=e164]
+                - generic "北京" [ref=e165]:
+                  - paragraph [ref=e167]: 北京
+                - generic "卖家信用极好" [ref=e170]
+          - link "正版12寸黑胶盲盒95元包邮三张 特价 品质保障！所有唱片N M品质！都是珍藏级限量老唱片 都是个人亲听过的！放心拍！联系客服备注想要的风格 3张包邮有流行 乡村 民谣 古典 摇滚 欧美 日本 嘻哈说唱 轻音乐 电影原声 citypop 等，可选风格，全部都是国外音乐，正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求。注意：不可指定歌手和乐队 只可指定风格，这就像抽盲盒一样，很有趣味性，虽说是盲盒 但店主也会尽量满足大家的需求，发货之前都会每一张聆听筛选，让每位顾客都能买到自己喜欢的音乐。有需要货的可以直接联系客服，价格优惠绝对正品。因黑胶唱片因为其可复制性并有调包可能，物品售出不退换。 ¥ 95 234人想要 福建 回复超快" [ref=e171] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=999554796995&categoryId=126864811
+            - img [ref=e173]
+            - generic [ref=e174]:
+              - generic "正版12寸黑胶盲盒95元包邮三张 特价 品质保障！所有唱片N M品质！都是珍藏级限量老唱片 都是个人亲听过的！放心拍！联系客服备注想要的风格 3张包邮有流行 乡村 民谣 古典 摇滚 欧美 日本 嘻哈说唱 轻音乐 电影原声 citypop 等，可选风格，全部都是国外音乐，正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求。注意：不可指定歌手和乐队 只可指定风格，这就像抽盲盒一样，很有趣味性，虽说是盲盒 但店主也会尽量满足大家的需求，发货之前都会每一张聆听筛选，让每位顾客都能买到自己喜欢的音乐。有需要货的可以直接联系客服，价格优惠绝对正品。因黑胶唱片因为其可复制性并有调包可能，物品售出不退换。" [ref=e175]:
+                - generic [ref=e176]:
+                  - img [ref=e177]
+                  - text: 正版12寸黑胶盲盒95元包邮三张 特价 品质保障！所有唱片N M品质！都是珍藏级限量老唱片 都是个人亲听过的！放心拍！联系客服备注想要的风格 3张包邮有流行 乡村 民谣 古典 摇滚 欧美 日本 嘻哈说唱 轻音乐 电影原声 citypop 等，可选风格，全部都是国外音乐，正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求。注意：不可指定歌手和乐队 只可指定风格，这就像抽盲盒一样，很有趣味性，虽说是盲盒 但店主也会尽量满足大家的需求，发货之前都会每一张聆听筛选，让每位顾客都能买到自己喜欢的音乐。有需要货的可以直接联系客服，价格优惠绝对正品。因黑胶唱片因为其可复制性并有调包可能，物品售出不退换。
+              - img [ref=e179]
+              - generic [ref=e180]:
+                - generic [ref=e181]:
+                  - generic [ref=e182]: ¥
+                  - generic [ref=e183]: "95"
+                - generic "234人想要" [ref=e185]
+              - generic [ref=e186]:
+                - img [ref=e187]
+                - generic "福建" [ref=e188]:
+                  - paragraph [ref=e190]: 福建
+                - generic "回复超快" [ref=e193]
+          - 'link "新到古典黑胶音乐唱片。12寸黑胶唱片。直径30*30cm。全 国最低价。 一手货源 ，没有中间商赚差价。 盲盒批发价： 35元/张。 随机盲盒发货。9---95新， 保证都能听。 5张=180元包邮 10张=350元包邮 20张=700元包邮 整箱100张批发价30元/张。 #老唱片胶片 ... ¥ 35 ¥80 广东" [ref=e194] [cursor=pointer]':
+            - /url: https://www.goofish.com/item?id=742934500499&categoryId=126864811
+            - img [ref=e196]
+            - generic [ref=e197]:
+              - 'generic "新到古典黑胶音乐唱片。12寸黑胶唱片。直径30*30cm。全 国最低价。 一手货源 ，没有中间商赚差价。 盲盒批发价： 35元/张。 随机盲盒发货。9---95新， 保证都能听。 5张=180元包邮 10张=350元包邮 20张=700元包邮 整箱100张批发价30元/张。 #老唱片胶片 ..." [ref=e198]':
+                - generic [ref=e199]:
+                  - img [ref=e200]
+                  - text: "新到古典黑胶音乐唱片。12寸黑胶唱片。直径30*30cm。全 国最低价。 一手货源 ，没有中间商赚差价。 盲盒批发价： 35元/张。 随机盲盒发货。9---95新， 保证都能听。 5张=180元包邮 10张=350元包邮 20张=700元包邮 整箱100张批发价30元/张。 #老唱片胶片 ..."
+              - generic [ref=e202]:
+                - generic [ref=e203]:
+                  - generic [ref=e204]: ¥
+                  - generic [ref=e205]: "35"
+                - generic "¥80" [ref=e207]
+              - generic [ref=e208]:
+                - img [ref=e209]
+                - generic "广东" [ref=e210]:
+                  - paragraph [ref=e212]: 广东
+          - link "包邮10张HIFI必听经典发烧天碟黑胶发烧唱片无损专辑CD碟 片原版音质整套高音质，整体音色通透自然好听，人声净，音质效果好，每张CD都可以给听者带来如浴春风的爽快和明亮的感觉，音场透明度及层次感好，实测在任何音响组合中均可发挥最完美音色。听感温暖、柔和、厚实、弹性十足，瞬态响应好，混响声足量，需要发... ¥ 30 93人想要 广东 回复超快" [ref=e213] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=805919128268&categoryId=126864811
+            - img [ref=e215]
+            - generic [ref=e216]:
+              - generic "包邮10张HIFI必听经典发烧天碟黑胶发烧唱片无损专辑CD碟 片原版音质整套高音质，整体音色通透自然好听，人声净，音质效果好，每张CD都可以给听者带来如浴春风的爽快和明亮的感觉，音场透明度及层次感好，实测在任何音响组合中均可发挥最完美音色。听感温暖、柔和、厚实、弹性十足，瞬态响应好，混响声足量，需要发..." [ref=e217]:
+                - generic [ref=e218]:
+                  - img [ref=e219]
+                  - text: 包邮10张HIFI必听经典发烧天碟黑胶发烧唱片无损专辑CD碟 片原版音质整套高音质，整体音色通透自然好听，人声净，音质效果好，每张CD都可以给听者带来如浴春风的爽快和明亮的感觉，音场透明度及层次感好，实测在任何音响组合中均可发挥最完美音色。听感温暖、柔和、厚实、弹性十足，瞬态响应好，混响声足量，需要发...
+              - img [ref=e221]
+              - generic [ref=e222]:
+                - generic [ref=e223]:
+                  - generic [ref=e224]: ¥
+                  - generic [ref=e225]: "30"
+                - generic "93人想要" [ref=e227]
+              - generic [ref=e228]:
+                - img [ref=e229]
+                - generic "广东" [ref=e230]:
+                  - paragraph [ref=e232]: 广东
+                - generic "回复超快" [ref=e235]
+          - link "正版经典老歌车载cd黑胶无损cd碟片汽车音乐唱片歌碟光盘光碟 歌曲全新塑封包邮7张碟片包装随机发一套 ¥ 22 .88 ¥99 河北" [ref=e236] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=828104680512&categoryId=126864811
+            - img [ref=e238]
+            - generic [ref=e239]:
+              - generic "正版经典老歌车载cd黑胶无损cd碟片汽车音乐唱片歌碟光盘光碟 歌曲全新塑封包邮7张碟片包装随机发一套" [ref=e240]:
+                - generic [ref=e241]:
+                  - img [ref=e242]
+                  - text: 正版经典老歌车载cd黑胶无损cd碟片汽车音乐唱片歌碟光盘光碟 歌曲全新塑封包邮7张碟片包装随机发一套
+              - generic [ref=e244]:
+                - generic [ref=e245]:
+                  - generic [ref=e246]: ¥
+                  - generic [ref=e247]: "22"
+                  - generic [ref=e248]: ".88"
+                - generic "¥99" [ref=e250]
+              - generic [ref=e251]:
+                - img [ref=e252]
+                - generic "河北" [ref=e253]:
+                  - paragraph [ref=e255]: 河北
+          - link "特惠12寸黑胶唱片 古典乐 钢琴 大提琴 小提琴 歌剧 弦乐 重奏 欧美流行 摇滚 爵士 放克 轻音乐 乡村 日本流行 电子乐 hiphop 等各类型音乐随机盲盒 12寸黑胶唱片LP 碟面品相很好 保证一针到底 满百包邮 偏远地区除外 拍下联系我改价 喜欢什么风格的音乐 直拍按照风格下单即可 买... ¥ 17 86人想要 安徽" [ref=e256] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=901751007523&categoryId=126862152
+            - img [ref=e258]
+            - generic [ref=e259]:
+              - generic "特惠12寸黑胶唱片 古典乐 钢琴 大提琴 小提琴 歌剧 弦乐 重奏 欧美流行 摇滚 爵士 放克 轻音乐 乡村 日本流行 电子乐 hiphop 等各类型音乐随机盲盒 12寸黑胶唱片LP 碟面品相很好 保证一针到底 满百包邮 偏远地区除外 拍下联系我改价 喜欢什么风格的音乐 直拍按照风格下单即可 买..." [ref=e260]:
+                - generic [ref=e261]: 特惠12寸黑胶唱片 古典乐 钢琴 大提琴 小提琴 歌剧 弦乐 重奏 欧美流行 摇滚 爵士 放克 轻音乐 乡村 日本流行 电子乐 hiphop 等各类型音乐随机盲盒 12寸黑胶唱片LP 碟面品相很好 保证一针到底 满百包邮 偏远地区除外 拍下联系我改价 喜欢什么风格的音乐 直拍按照风格下单即可 买...
+              - generic [ref=e263]:
+                - generic [ref=e264]:
+                  - generic [ref=e265]: ¥
+                  - generic [ref=e266]: "17"
+                - generic "86人想要" [ref=e268]
+              - generic [ref=e269]:
+                - img [ref=e270]
+                - generic "安徽" [ref=e271]:
+                  - paragraph [ref=e273]: 安徽
+          - link "正版日本原味情歌黑胶唱片日文日语流行音乐汽车载黑胶3CD光盘 全新！未拆封 包邮 ¥ 25 3人想要 广东" [ref=e274] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=855483310069&categoryId=126864811
+            - img [ref=e276]
+            - generic [ref=e277]:
+              - generic "正版日本原味情歌黑胶唱片日文日语流行音乐汽车载黑胶3CD光盘 全新！未拆封 包邮" [ref=e278]:
+                - generic [ref=e279]:
+                  - img [ref=e280]
+                  - text: 正版日本原味情歌黑胶唱片日文日语流行音乐汽车载黑胶3CD光盘 全新！未拆封 包邮
+              - generic [ref=e282]:
+                - generic [ref=e283]:
+                  - generic [ref=e284]: ¥
+                  - generic [ref=e285]: "25"
+                - generic "3人想要" [ref=e287]
+              - generic [ref=e288]:
+                - img [ref=e289]
+                - generic "广东" [ref=e290]:
+                  - paragraph [ref=e292]: 广东
+          - link "【捡漏】宝丽金粤语经典老歌黑胶CD合集，10张CD，正版原装 ，无损高音质，黑胶典藏版，收藏送人都绝绝子！曲目超全，经典老歌、怀旧金曲，车载听歌、音响试音都很合适，音质清晰，盘面干净，全新未拆，放心入！包邮发货，售出不退不换～喜欢直接拍，细节私聊！ ¥ 35 76人想要 广东 发货极快" [ref=e293] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=996176576878&categoryId=126864811
+            - img [ref=e295]
+            - generic [ref=e296]:
+              - generic "【捡漏】宝丽金粤语经典老歌黑胶CD合集，10张CD，正版原装 ，无损高音质，黑胶典藏版，收藏送人都绝绝子！曲目超全，经典老歌、怀旧金曲，车载听歌、音响试音都很合适，音质清晰，盘面干净，全新未拆，放心入！包邮发货，售出不退不换～喜欢直接拍，细节私聊！" [ref=e297]:
+                - generic [ref=e298]:
+                  - img [ref=e299]
+                  - text: 【捡漏】宝丽金粤语经典老歌黑胶CD合集，10张CD，正版原装 ，无损高音质，黑胶典藏版，收藏送人都绝绝子！曲目超全，经典老歌、怀旧金曲，车载听歌、音响试音都很合适，音质清晰，盘面干净，全新未拆，放心入！包邮发货，售出不退不换～喜欢直接拍，细节私聊！
+              - generic [ref=e301]:
+                - generic [ref=e302]:
+                  - generic [ref=e303]: ¥
+                  - generic [ref=e304]: "35"
+                - generic "76人想要" [ref=e306]
+              - generic [ref=e307]:
+                - img [ref=e308]
+                - generic "广东" [ref=e309]:
+                  - paragraph [ref=e311]: 广东
+                - generic "发货极快" [ref=e314]
+          - link "粤语老歌 女人篇 家用车载CD光碟 黑胶碟片 经典老歌合集 感兴趣的话点“我想要”和我私聊吧～ ¥ 25 ¥48 广东 回复超快" [ref=e315] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=755721925195&categoryId=126864811
+            - img [ref=e317]
+            - generic [ref=e318]:
+              - generic "粤语老歌 女人篇 家用车载CD光碟 黑胶碟片 经典老歌合集 感兴趣的话点“我想要”和我私聊吧～" [ref=e319]:
+                - generic [ref=e320]:
+                  - img [ref=e321]
+                  - text: 粤语老歌 女人篇 家用车载CD光碟 黑胶碟片 经典老歌合集 感兴趣的话点“我想要”和我私聊吧～
+              - generic [ref=e323]:
+                - generic [ref=e324]:
+                  - generic [ref=e325]: ¥
+                  - generic [ref=e326]: "25"
+                - generic "¥48" [ref=e328]
+              - generic [ref=e329]:
+                - img [ref=e330]
+                - generic "广东" [ref=e331]:
+                  - paragraph [ref=e333]: 广东
+                - generic "回复超快" [ref=e336]
+          - link "老虎鱼HiFi试音碟，无损音质黑胶CD碟，全新未拆封，一盒三 张CD碟30元包邮 ¥ 30 3人想要 广东 卖家信用极好" [ref=e337] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=901482285195&categoryId=126864811
+            - img [ref=e339]
+            - generic [ref=e340]:
+              - generic "老虎鱼HiFi试音碟，无损音质黑胶CD碟，全新未拆封，一盒三 张CD碟30元包邮" [ref=e341]:
+                - generic [ref=e342]:
+                  - img [ref=e343]
+                  - text: 老虎鱼HiFi试音碟，无损音质黑胶CD碟，全新未拆封，一盒三 张CD碟30元包邮
+              - generic [ref=e345]:
+                - generic [ref=e346]:
+                  - generic [ref=e347]: ¥
+                  - generic [ref=e348]: "30"
+                - generic "3人想要" [ref=e350]
+              - generic [ref=e351]:
+                - img [ref=e352]
+                - generic "广东" [ref=e353]:
+                  - paragraph [ref=e355]: 广东
+                - generic "卖家信用极好" [ref=e358]
+          - link "黑胶LP唱片李宗盛《凡人歌》，全新未拆封，1LP，33转12 寸，货少，预购从速 1992年，李宗盛与林忆莲因合作电影《霸王别姬》的片尾曲《当爱已成 往事》而结缘。这首歌不仅成为了两人合作的经典之作，也悄然在他们之间种下了情感的种子。 李宗盛被林忆莲独特的嗓音和深情的演唱所打动，而林忆莲也被李宗盛的才华和深情所吸引。两人在音乐上的默契和共鸣，为他们的爱情奠定了坚实的基础。 李宗盛和林忆莲的爱情故事不仅是一段情感的历程，也是一段音乐的见证。他们共同创作的多首歌曲如《当爱已成往事》、《为你我受冷风吹》等，都成为了华语乐坛的经典之作，见证了他们之间的情感纠葛和深刻记忆。 他们的故事也引发了无数人的共鸣和思考。在爱情与事业、家庭与个人梦想之间如何做出选择？这是每个人都需要面对的问题。而李宗盛和林忆莲的故事则告诉我们：无论选择何种道路，都要勇敢地面对自己的内心和选择的结果。 唱片运输不易，快递送达时请当面签收，售出后无质量问题的话，不退不换，介意者勿拍，敬请见谅 关注我，不定时0 元 领唱片 点击头像关注我，更多优惠在我发布的宝贝里 ¥ 148 ¥168 北京 卖家信用极好" [ref=e359] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=825291110500&categoryId=126864811
+            - img [ref=e361]
+            - generic [ref=e362]:
+              - generic "黑胶LP唱片李宗盛《凡人歌》，全新未拆封，1LP，33转12 寸，货少，预购从速 1992年，李宗盛与林忆莲因合作电影《霸王别姬》的片尾曲《当爱已成 往事》而结缘。这首歌不仅成为了两人合作的经典之作，也悄然在他们之间种下了情感的种子。 李宗盛被林忆莲独特的嗓音和深情的演唱所打动，而林忆莲也被李宗盛的才华和深情所吸引。两人在音乐上的默契和共鸣，为他们的爱情奠定了坚实的基础。 李宗盛和林忆莲的爱情故事不仅是一段情感的历程，也是一段音乐的见证。他们共同创作的多首歌曲如《当爱已成往事》、《为你我受冷风吹》等，都成为了华语乐坛的经典之作，见证了他们之间的情感纠葛和深刻记忆。 他们的故事也引发了无数人的共鸣和思考。在爱情与事业、家庭与个人梦想之间如何做出选择？这是每个人都需要面对的问题。而李宗盛和林忆莲的故事则告诉我们：无论选择何种道路，都要勇敢地面对自己的内心和选择的结果。 唱片运输不易，快递送达时请当面签收，售出后无质量问题的话，不退不换，介意者勿拍，敬请见谅 关注我，不定时0 元 领唱片 点击头像关注我，更多优惠在我发布的宝贝里" [ref=e363]:
+                - generic [ref=e364]:
+                  - img [ref=e365]
+                  - text: 黑胶LP唱片李宗盛《凡人歌》，全新未拆封，1LP，33转12 寸，货少，预购从速 1992年，李宗盛与林忆莲因合作电影《霸王别姬》的片尾曲《当爱已成 往事》而结缘。这首歌不仅成为了两人合作的经典之作，也悄然在他们之间种下了情感的种子。 李宗盛被林忆莲独特的嗓音和深情的演唱所打动，而林忆莲也被李宗盛的才华和深情所吸引。两人在音乐上的默契和共鸣，为他们的爱情奠定了坚实的基础。 李宗盛和林忆莲的爱情故事不仅是一段情感的历程，也是一段音乐的见证。他们共同创作的多首歌曲如《当爱已成往事》、《为你我受冷风吹》等，都成为了华语乐坛的经典之作，见证了他们之间的情感纠葛和深刻记忆。 他们的故事也引发了无数人的共鸣和思考。在爱情与事业、家庭与个人梦想之间如何做出选择？这是每个人都需要面对的问题。而李宗盛和林忆莲的故事则告诉我们：无论选择何种道路，都要勇敢地面对自己的内心和选择的结果。 唱片运输不易，快递送达时请当面签收，售出后无质量问题的话，不退不换，介意者勿拍，敬请见谅 关注我，不定时0 元 领唱片 点击头像关注我，更多优惠在我发布的宝贝里
+              - img [ref=e367]
+              - generic [ref=e368]:
+                - generic [ref=e369]:
+                  - generic [ref=e370]: ¥
+                  - generic [ref=e371]: "148"
+                - generic "¥168" [ref=e373]
+              - generic [ref=e374]:
+                - img [ref=e375]
+                - generic "北京" [ref=e376]:
+                  - paragraph [ref=e378]: 北京
+                - generic "卖家信用极好" [ref=e381]
+          - link "实力唱将 陶喆cd 爱很简单 流行经典歌曲 无损音质黑胶车载 CD碟片 三张碟片，全新未拆，音响出版社出版，无损音质，黑胶碟片，品质好，有货，拍下安排发货 ♥♥主页碟片种类多，有需要的可以去 ¥ 24 .61 累计降价1.39元 上海 回复超快" [ref=e382] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=814556287229&categoryId=126864811
+            - img [ref=e384]
+            - generic [ref=e385]:
+              - generic "实力唱将 陶喆cd 爱很简单 流行经典歌曲 无损音质黑胶车载 CD碟片 三张碟片，全新未拆，音响出版社出版，无损音质，黑胶碟片，品质好，有货，拍下安排发货 ♥♥主页碟片种类多，有需要的可以去" [ref=e386]:
+                - generic [ref=e387]:
+                  - img [ref=e388]
+                  - text: 实力唱将 陶喆cd 爱很简单 流行经典歌曲 无损音质黑胶车载 CD碟片 三张碟片，全新未拆，音响出版社出版，无损音质，黑胶碟片，品质好，有货，拍下安排发货 ♥♥主页碟片种类多，有需要的可以去
+              - generic [ref=e390]:
+                - generic [ref=e391]:
+                  - generic [ref=e392]: ¥
+                  - generic [ref=e393]: "24"
+                  - generic [ref=e394]: ".61"
+                - generic [ref=e396]:
+                  - img [ref=e397]
+                  - generic "累计降价1.39元" [ref=e398]
+              - generic [ref=e399]:
+                - img [ref=e400]
+                - generic "上海" [ref=e401]:
+                  - paragraph [ref=e403]: 上海
+                - generic "回复超快" [ref=e406]
+          - link "李健 音乐诗人 黑胶唱片LP收藏级 珍藏版 母带级音质，1 2寸33转黑胶唱机机专用。唱片规格：↓↓↓↓12寸、33转！唱片成色：↓↓↓↓百分百%全新密封、保证音质绝佳、一针到底！！！购买保障：↓↓↓↓有任何质量问题、免费退换、运费我们承担！！！运输方式：↓↓↓↓卖家包邮、专业打包、内外4层包装保驾护航！！！----------------------------①：点击【我想要】②：点击【立即购买】--------------------------感兴趣的朋友欢迎私聊，先到先得哦！ ¥ 168 累计降价11% 山东" [ref=e407] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=825160453515&categoryId=126864811
+            - img [ref=e409]
+            - generic [ref=e410]:
+              - generic "李健 音乐诗人 黑胶唱片LP收藏级 珍藏版 母带级音质，1 2寸33转黑胶唱机机专用。唱片规格：↓↓↓↓12寸、33转！唱片成色：↓↓↓↓百分百%全新密封、保证音质绝佳、一针到底！！！购买保障：↓↓↓↓有任何质量问题、免费退换、运费我们承担！！！运输方式：↓↓↓↓卖家包邮、专业打包、内外4层包装保驾护航！！！----------------------------①：点击【我想要】②：点击【立即购买】--------------------------感兴趣的朋友欢迎私聊，先到先得哦！" [ref=e411]:
+                - generic [ref=e412]:
+                  - img [ref=e413]
+                  - text: 李健 音乐诗人 黑胶唱片LP收藏级 珍藏版 母带级音质，1 2寸33转黑胶唱机机专用。唱片规格：↓↓↓↓12寸、33转！唱片成色：↓↓↓↓百分百%全新密封、保证音质绝佳、一针到底！！！购买保障：↓↓↓↓有任何质量问题、免费退换、运费我们承担！！！运输方式：↓↓↓↓卖家包邮、专业打包、内外4层包装保驾护航！！！----------------------------①：点击【我想要】②：点击【立即购买】--------------------------感兴趣的朋友欢迎私聊，先到先得哦！
+              - img [ref=e415]
+              - generic [ref=e416]:
+                - generic [ref=e417]:
+                  - generic [ref=e418]: ¥
+                  - generic [ref=e419]: "168"
+                - generic [ref=e421]:
+                  - img [ref=e422]
+                  - generic "累计降价11%" [ref=e423]
+              - generic [ref=e424]:
+                - img [ref=e425]
+                - generic "山东" [ref=e426]:
+                  - paragraph [ref=e428]: 山东
+          - link "【捡漏来】欧美经典英文老歌cd怀旧歌曲无损音乐 黑胶唱片6 碟装包邮 全新cd碟片全新未拆封！原价几十买的，数量不多，先到先得！需要的可以直接拍 欧美金曲6cd 18包邮 欧美流行10cd 19.9包邮 ¥ 18 ¥39 广东 回复超快" [ref=e429] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=705128894744&categoryId=126864811
+            - img [ref=e431]
+            - generic [ref=e432]:
+              - generic "【捡漏来】欧美经典英文老歌cd怀旧歌曲无损音乐 黑胶唱片6 碟装包邮 全新cd碟片全新未拆封！原价几十买的，数量不多，先到先得！需要的可以直接拍 欧美金曲6cd 18包邮 欧美流行10cd 19.9包邮" [ref=e433]:
+                - generic [ref=e434]:
+                  - img [ref=e435]
+                  - text: 【捡漏来】欧美经典英文老歌cd怀旧歌曲无损音乐 黑胶唱片6 碟装包邮 全新cd碟片全新未拆封！原价几十买的，数量不多，先到先得！需要的可以直接拍 欧美金曲6cd 18包邮 欧美流行10cd 19.9包邮
+              - img [ref=e437]
+              - generic [ref=e438]:
+                - generic [ref=e439]:
+                  - generic [ref=e440]: ¥
+                  - generic [ref=e441]: "18"
+                - generic "¥39" [ref=e443]
+              - generic [ref=e444]:
+                - img [ref=e445]
+                - generic "广东" [ref=e446]:
+                  - paragraph [ref=e448]: 广东
+                - generic "回复超快" [ref=e451]
+          - link "包邮15张 周杰伦全集cd 黑胶cd唱片 无损音乐 家用通 用碟片原版母盘直刻整套高音质，整体音色通透自然好听，人声净，音质效果好，每张CD都可以给听者带来如浴春风的爽快和明亮的感觉，音场透明度及层次感好，实测在任何音响组合中均可发挥最完美音色。听感温暖、柔和、厚实、弹性十足，瞬态响应好，混响声足量... ¥ 10 425人想要 广东 回复超快" [ref=e452] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=925930134480&categoryId=126864811
+            - img [ref=e454]
+            - generic [ref=e455]:
+              - generic "包邮15张 周杰伦全集cd 黑胶cd唱片 无损音乐 家用通 用碟片原版母盘直刻整套高音质，整体音色通透自然好听，人声净，音质效果好，每张CD都可以给听者带来如浴春风的爽快和明亮的感觉，音场透明度及层次感好，实测在任何音响组合中均可发挥最完美音色。听感温暖、柔和、厚实、弹性十足，瞬态响应好，混响声足量..." [ref=e456]:
+                - generic [ref=e457]:
+                  - img [ref=e458]
+                  - text: 包邮15张 周杰伦全集cd 黑胶cd唱片 无损音乐 家用通 用碟片原版母盘直刻整套高音质，整体音色通透自然好听，人声净，音质效果好，每张CD都可以给听者带来如浴春风的爽快和明亮的感觉，音场透明度及层次感好，实测在任何音响组合中均可发挥最完美音色。听感温暖、柔和、厚实、弹性十足，瞬态响应好，混响声足量...
+              - img [ref=e460]
+              - generic [ref=e461]:
+                - generic [ref=e462]:
+                  - generic [ref=e463]: ¥
+                  - generic [ref=e464]: "10"
+                - generic "425人想要" [ref=e466]
+              - generic [ref=e467]:
+                - img [ref=e468]
+                - generic "广东" [ref=e469]:
+                  - paragraph [ref=e471]: 广东
+                - generic "回复超快" [ref=e474]
+          - link "刘珺儿新年歌曲黑胶CD碟，dsd音质，全新未拆封，18包邮， 拍下当天发货。 ¥ 18 2人想要 广东" [ref=e475] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=763652327274&categoryId=126864811
+            - img [ref=e477]
+            - generic [ref=e478]:
+              - generic "刘珺儿新年歌曲黑胶CD碟，dsd音质，全新未拆封，18包邮， 拍下当天发货。" [ref=e479]:
+                - generic [ref=e480]:
+                  - img [ref=e481]
+                  - text: 刘珺儿新年歌曲黑胶CD碟，dsd音质，全新未拆封，18包邮， 拍下当天发货。
+              - img [ref=e483]
+              - generic [ref=e484]:
+                - generic [ref=e485]:
+                  - generic [ref=e486]: ¥
+                  - generic [ref=e487]: "18"
+                - generic "2人想要" [ref=e489]
+              - generic [ref=e490]:
+                - img [ref=e491]
+                - generic "广东" [ref=e492]:
+                  - paragraph [ref=e494]: 广东
+          - link "王菲专辑精选正版无损黑胶唱片经典华语流行音乐老歌汽车载cd碟 片 1】全新未拆封 2】一套3张cd碟 一碟15首共45首 3】非个人刻录，正版的，出版社出版， 4】28包邮 不议价 5】带精美歌词本 ¥ 28 ¥99 广东" [ref=e495] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=826356396744&categoryId=126864811
+            - img [ref=e497]
+            - generic [ref=e498]:
+              - generic "王菲专辑精选正版无损黑胶唱片经典华语流行音乐老歌汽车载cd碟 片 1】全新未拆封 2】一套3张cd碟 一碟15首共45首 3】非个人刻录，正版的，出版社出版， 4】28包邮 不议价 5】带精美歌词本" [ref=e499]:
+                - generic [ref=e500]:
+                  - img [ref=e501]
+                  - text: 王菲专辑精选正版无损黑胶唱片经典华语流行音乐老歌汽车载cd碟 片 1】全新未拆封 2】一套3张cd碟 一碟15首共45首 3】非个人刻录，正版的，出版社出版， 4】28包邮 不议价 5】带精美歌词本
+              - generic [ref=e503]:
+                - generic [ref=e504]:
+                  - generic [ref=e505]: ¥
+                  - generic [ref=e506]: "28"
+                - generic "¥99" [ref=e508]
+              - generic [ref=e509]:
+                - img [ref=e510]
+                - generic "广东" [ref=e511]:
+                  - paragraph [ref=e513]: 广东
+          - link "阿黛尔 Adele 21 黑胶唱片(珍藏版) 规格:12寸，33转，双面包装:内外四层包装全新包装，音质畅顺包邮！包邮！包邮！ ¥ 168 ¥170 广东 百分百好评" [ref=e514] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=988577956253&categoryId=126862152
+            - img [ref=e516]
+            - generic [ref=e517]:
+              - generic "阿黛尔 Adele 21 黑胶唱片(珍藏版) 规格:12寸，33转，双面包装:内外四层包装全新包装，音质畅顺包邮！包邮！包邮！" [ref=e518]:
+                - generic [ref=e519]:
+                  - img [ref=e520]
+                  - text: 阿黛尔 Adele 21 黑胶唱片(珍藏版) 规格:12寸，33转，双面包装:内外四层包装全新包装，音质畅顺包邮！包邮！包邮！
+              - img [ref=e522]
+              - generic [ref=e523]:
+                - generic [ref=e524]:
+                  - generic [ref=e525]: ¥
+                  - generic [ref=e526]: "168"
+                - generic "¥170" [ref=e528]
+              - generic [ref=e529]:
+                - img [ref=e530]
+                - generic "广东" [ref=e531]:
+                  - paragraph [ref=e533]: 广东
+                - generic "百分百好评" [ref=e536]
+          - link "龚玥民歌红3，无损黑胶CD碟，全新未拆封，音质靓，效果好，直 接拍包邮，拍下当天发货。 ¥ 18 4人想要 广东" [ref=e537] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=766316261338&categoryId=126864811
+            - img [ref=e539]
+            - generic [ref=e540]:
+              - generic "龚玥民歌红3，无损黑胶CD碟，全新未拆封，音质靓，效果好，直 接拍包邮，拍下当天发货。" [ref=e541]:
+                - generic [ref=e542]:
+                  - img [ref=e543]
+                  - text: 龚玥民歌红3，无损黑胶CD碟，全新未拆封，音质靓，效果好，直 接拍包邮，拍下当天发货。
+              - img [ref=e545]
+              - generic [ref=e546]:
+                - generic [ref=e547]:
+                  - generic [ref=e548]: ¥
+                  - generic [ref=e549]: "18"
+                - generic "4人想要" [ref=e551]
+              - generic [ref=e552]:
+                - img [ref=e553]
+                - generic "广东" [ref=e554]:
+                  - paragraph [ref=e556]: 广东
+          - link "全新正版LP黑胶唱片，周传雄《青花》专辑，收录经典曲目《我的 心太乱》。12寸直径30cm，33转，品相完好无瑕疵。喜欢周传雄的朋友不要错过，全新未拆封，音乐爱好者必备收藏！ ¥ 148 60人想要 广东 百分百好评" [ref=e557] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=889618041782&categoryId=126864811
+            - img [ref=e559]
+            - generic [ref=e560]:
+              - generic "全新正版LP黑胶唱片，周传雄《青花》专辑，收录经典曲目《我的 心太乱》。12寸直径30cm，33转，品相完好无瑕疵。喜欢周传雄的朋友不要错过，全新未拆封，音乐爱好者必备收藏！" [ref=e561]:
+                - generic [ref=e562]:
+                  - img [ref=e563]
+                  - text: 全新正版LP黑胶唱片，周传雄《青花》专辑，收录经典曲目《我的 心太乱》。12寸直径30cm，33转，品相完好无瑕疵。喜欢周传雄的朋友不要错过，全新未拆封，音乐爱好者必备收藏！
+              - generic [ref=e565]:
+                - generic [ref=e566]:
+                  - generic [ref=e567]: ¥
+                  - generic [ref=e568]: "148"
+                - generic "60人想要" [ref=e570]
+              - generic [ref=e571]:
+                - img [ref=e572]
+                - generic "广东" [ref=e573]:
+                  - paragraph [ref=e575]: 广东
+                - generic "百分百好评" [ref=e578]
+          - link "京剧名家名段cd碟片 正版传统戏曲无损音质光盘 汽车载用黑胶 碟片 ¥ 25 ¥48 广东 卖家信用极好" [ref=e579] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=902137666891&categoryId=126864811
+            - img [ref=e581]
+            - generic [ref=e582]:
+              - generic "京剧名家名段cd碟片 正版传统戏曲无损音质光盘 汽车载用黑胶 碟片" [ref=e583]:
+                - generic [ref=e584]:
+                  - img [ref=e585]
+                  - text: 京剧名家名段cd碟片 正版传统戏曲无损音质光盘 汽车载用黑胶 碟片
+              - generic [ref=e587]:
+                - generic [ref=e588]:
+                  - generic [ref=e589]: ¥
+                  - generic [ref=e590]: "25"
+                - generic "¥48" [ref=e592]
+              - generic [ref=e593]:
+                - img [ref=e594]
+                - generic "广东" [ref=e595]:
+                  - paragraph [ref=e597]: 广东
+                - generic "卖家信用极好" [ref=e600]
+          - link "张震岳《黄金十年精选集》无损黑胶专辑CD碟片，含下列经典歌曲 01.再见 02.思念是一种病 03.爱我别走 04.爱的初体验 05.就让这首歌 06.小宇 07.路口 08.很难 09.你说有个女孩 10.抱着你 11.舍不得 12.我会想念你 13.走慢一点点 14.分手吧 15.OK 16.两... ¥ 20 13人想要 广东 卖家信用极好" [ref=e601] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=843995022547&categoryId=126864811
+            - img [ref=e603]
+            - generic [ref=e604]:
+              - generic "张震岳《黄金十年精选集》无损黑胶专辑CD碟片，含下列经典歌曲 01.再见 02.思念是一种病 03.爱我别走 04.爱的初体验 05.就让这首歌 06.小宇 07.路口 08.很难 09.你说有个女孩 10.抱着你 11.舍不得 12.我会想念你 13.走慢一点点 14.分手吧 15.OK 16.两..." [ref=e605]:
+                - generic [ref=e606]:
+                  - img [ref=e607]
+                  - text: 张震岳《黄金十年精选集》无损黑胶专辑CD碟片，含下列经典歌曲 01.再见 02.思念是一种病 03.爱我别走 04.爱的初体验 05.就让这首歌 06.小宇 07.路口 08.很难 09.你说有个女孩 10.抱着你 11.舍不得 12.我会想念你 13.走慢一点点 14.分手吧 15.OK 16.两...
+              - generic [ref=e609]:
+                - generic [ref=e610]:
+                  - generic [ref=e611]: ¥
+                  - generic [ref=e612]: "20"
+                - generic "13人想要" [ref=e614]
+              - generic [ref=e615]:
+                - img [ref=e616]
+                - generic "广东" [ref=e617]:
+                  - paragraph [ref=e619]: 广东
+                - generic "卖家信用极好" [ref=e622]
+          - link "豫剧cd 经典唱段名家名段地方戏曲无损黑胶cd汽车载CD光盘 碟片 ¥ 26 ¥48 广东 回复超快" [ref=e623] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=987979929684&categoryId=126864811
+            - img [ref=e625]
+            - generic [ref=e626]:
+              - generic "豫剧cd 经典唱段名家名段地方戏曲无损黑胶cd汽车载CD光盘 碟片" [ref=e627]:
+                - generic [ref=e628]:
+                  - img [ref=e629]
+                  - text: 豫剧cd 经典唱段名家名段地方戏曲无损黑胶cd汽车载CD光盘 碟片
+              - generic [ref=e631]:
+                - generic [ref=e632]:
+                  - generic [ref=e633]: ¥
+                  - generic [ref=e634]: "26"
+                - generic "¥48" [ref=e636]
+              - generic [ref=e637]:
+                - img [ref=e638]
+                - generic "广东" [ref=e639]:
+                  - paragraph [ref=e641]: 广东
+                - generic "回复超快" [ref=e644]
+          - link "赵传黑胶CD，传唱经典，全新未拆封，音质靓，效果好，里面一张 黑胶CD，歌词页，直接拍包邮，拍下当天发货。 ¥ 16 累计降价20% 广东" [ref=e645] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=796573225787&categoryId=126864811
+            - img [ref=e647]
+            - generic [ref=e648]:
+              - generic "赵传黑胶CD，传唱经典，全新未拆封，音质靓，效果好，里面一张 黑胶CD，歌词页，直接拍包邮，拍下当天发货。" [ref=e649]:
+                - generic [ref=e650]:
+                  - img [ref=e651]
+                  - text: 赵传黑胶CD，传唱经典，全新未拆封，音质靓，效果好，里面一张 黑胶CD，歌词页，直接拍包邮，拍下当天发货。
+              - img [ref=e653]
+              - generic [ref=e654]:
+                - generic [ref=e655]:
+                  - generic [ref=e656]: ¥
+                  - generic [ref=e657]: "16"
+                - generic [ref=e659]:
+                  - img [ref=e660]
+                  - generic "累计降价20%" [ref=e661]
+              - generic [ref=e662]:
+                - img [ref=e663]
+                - generic "广东" [ref=e664]:
+                  - paragraph [ref=e666]: 广东
+          - link "甄楚倩《深夜港湾》CD专辑，全新未拆封，无损音质黑胶cd碟， 收录16首经典，音质效果好，适合发烧友收藏试音。 CD介质，18包邮（新疆西藏不包邮） ¥ 18 2人想要 广东 发货极快" [ref=e667] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=998043476633&categoryId=126864811
+            - img [ref=e669]
+            - generic [ref=e670]:
+              - generic "甄楚倩《深夜港湾》CD专辑，全新未拆封，无损音质黑胶cd碟， 收录16首经典，音质效果好，适合发烧友收藏试音。 CD介质，18包邮（新疆西藏不包邮）" [ref=e671]:
+                - generic [ref=e672]:
+                  - img [ref=e673]
+                  - text: 甄楚倩《深夜港湾》CD专辑，全新未拆封，无损音质黑胶cd碟， 收录16首经典，音质效果好，适合发烧友收藏试音。 CD介质，18包邮（新疆西藏不包邮）
+              - generic [ref=e675]:
+                - generic [ref=e676]:
+                  - generic [ref=e677]: ¥
+                  - generic [ref=e678]: "18"
+                - generic "2人想要" [ref=e680]
+              - generic [ref=e681]:
+                - img [ref=e682]
+                - generic "广东" [ref=e683]:
+                  - paragraph [ref=e685]: 广东
+                - generic "发货极快" [ref=e688]
+          - link "黑胶唱片LP12寸 citypop风格唱片28一张随机发 多拍有优惠 5张125，10张240 正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求，有少部分双盘的，算俩张 可以用于装饰 注意：不可指定歌手和乐队 有需要货的可以直接联系... ¥ 28 7人想要 广东 卖家信用极好" [ref=e689] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=860526737450&categoryId=126864811
+            - img [ref=e691]
+            - generic [ref=e692]:
+              - generic "黑胶唱片LP12寸 citypop风格唱片28一张随机发 多拍有优惠 5张125，10张240 正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求，有少部分双盘的，算俩张 可以用于装饰 注意：不可指定歌手和乐队 有需要货的可以直接联系..." [ref=e693]:
+                - generic [ref=e694]:
+                  - img [ref=e695]
+                  - text: 黑胶唱片LP12寸 citypop风格唱片28一张随机发 多拍有优惠 5张125，10张240 正常播放的正版黑胶 限量版 品相非常好，都是珍藏绝版老唱片 一针到底 下单后店主亲自甄选满足每位顾客的需求，有少部分双盘的，算俩张 可以用于装饰 注意：不可指定歌手和乐队 有需要货的可以直接联系...
+              - img [ref=e697]
+              - generic [ref=e698]:
+                - generic [ref=e699]:
+                  - generic [ref=e700]: ¥
+                  - generic [ref=e701]: "28"
+                - generic "7人想要" [ref=e703]
+              - generic [ref=e704]:
+                - img [ref=e705]
+                - generic "广东" [ref=e706]:
+                  - paragraph [ref=e708]: 广东
+                - generic "卖家信用极好" [ref=e711]
+          - link "坂井泉水黑胶3CD，全新未拆封，音质靓，效果好，一盒三张黑胶 CD，有歌词页，直接拍包邮，拍下当天发货. ¥ 28 11人想要 广东" [ref=e712] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=782990889736&categoryId=126864811
+            - img [ref=e714]
+            - generic [ref=e715]:
+              - generic "坂井泉水黑胶3CD，全新未拆封，音质靓，效果好，一盒三张黑胶 CD，有歌词页，直接拍包邮，拍下当天发货." [ref=e716]:
+                - generic [ref=e717]:
+                  - img [ref=e718]
+                  - text: 坂井泉水黑胶3CD，全新未拆封，音质靓，效果好，一盒三张黑胶 CD，有歌词页，直接拍包邮，拍下当天发货.
+              - img [ref=e720]
+              - generic [ref=e721]:
+                - generic [ref=e722]:
+                  - generic [ref=e723]: ¥
+                  - generic [ref=e724]: "28"
+                - generic "11人想要" [ref=e726]
+              - generic [ref=e727]:
+                - img [ref=e728]
+                - generic "广东" [ref=e729]:
+                  - paragraph [ref=e731]: 广东
+          - link "Beyond光辉岁月1983-1991经典老歌无损黑胶3CD 专辑 1】正版音像公司出版，非个人刻录 2】一套3张cd，收录《真的爱你》《长城》《大地》等经典老歌 3】播放正常，音质好，带歌词本 5】全新末拆封，包邮，不议价，不退不换 喜欢直接拍，有问题私聊 ¥ 25 .67 ¥39.8 广东" [ref=e732] [cursor=pointer]:
+            - /url: https://www.goofish.com/item?id=1007234765613&categoryId=126864811
+            - img [ref=e734]
+            - generic [ref=e735]:
+              - generic "Beyond光辉岁月1983-1991经典老歌无损黑胶3CD 专辑 1】正版音像公司出版，非个人刻录 2】一套3张cd，收录《真的爱你》《长城》《大地》等经典老歌 3】播放正常，音质好，带歌词本 5】全新末拆封，包邮，不议价，不退不换 喜欢直接拍，有问题私聊" [ref=e736]:
+                - generic [ref=e737]:
+                  - img [ref=e738]
+                  - text: Beyond光辉岁月1983-1991经典老歌无损黑胶3CD 专辑 1】正版音像公司出版，非个人刻录 2】一套3张cd，收录《真的爱你》《长城》《大地》等经典老歌 3】播放正常，音质好，带歌词本 5】全新末拆封，包邮，不议价，不退不换 喜欢直接拍，有问题私聊
+              - generic [ref=e740]:
+                - generic [ref=e741]:
+                  - generic [ref=e742]: ¥
+                  - generic [ref=e743]: "25"
+                  - generic [ref=e744]: ".67"
+                - generic "¥39.8" [ref=e746]
+              - generic [ref=e747]:
+                - img [ref=e748]
+                - generic "广东" [ref=e749]:
+                  - paragraph [ref=e751]: 广东
+        - generic [ref=e753]:
+          - generic [ref=e754]:
+            - button [disabled] [ref=e755]
+            - generic [ref=e757] [cursor=pointer]: "1"
+            - generic [ref=e758] [cursor=pointer]: "2"
+            - generic [ref=e759] [cursor=pointer]: "3"
+            - generic [ref=e760] [cursor=pointer]: "4"
+            - generic [ref=e761] [cursor=pointer]: "5"
+            - generic [ref=e762] [cursor=pointer]: "6"
+            - generic [ref=e763] [cursor=pointer]: "7"
+            - generic [ref=e764] [cursor=pointer]: "8"
+            - generic [ref=e765] [cursor=pointer]: "9"
+            - generic [ref=e766] [cursor=pointer]: "10"
+            - generic [ref=e767] [cursor=pointer]: ...
+            - generic [ref=e768] [cursor=pointer]: "50"
+            - button [ref=e769] [cursor=pointer]
+          - generic [ref=e771]:
+            - generic [ref=e772]:
+              - generic [ref=e773]: 到第
+              - textbox [ref=e775]
+              - generic [ref=e776]: 页
+            - button "确定" [ref=e777] [cursor=pointer]
+      - generic [ref=e780]:
+        - link "发闲置" [ref=e781] [cursor=pointer]:
+          - /url: https://www.goofish.com/publish
+          - img [ref=e783]
+          - generic [ref=e784]: 发闲置
+        - link "8 消息" [ref=e785] [cursor=pointer]:
+          - /url: https://www.goofish.com/im
+          - generic [ref=e787]:
+            - img [ref=e788]
+            - generic [ref=e789]: "8"
+          - generic [ref=e790]: 消息
+        - generic [ref=e792] [cursor=pointer]:
+          - img [ref=e795]
+          - generic [ref=e796]: APP
+        - link "反馈" [ref=e797] [cursor=pointer]:
+          - /url: https://www.goofish.com/feedback?from=search
+          - img [ref=e800]
+          - generic [ref=e801]: 反馈
+        - link "客服" [ref=e802] [cursor=pointer]:
+          - /url: https://alimebot.goofish.com/intl/index.htm?from=wkbRssQuvW
+          - img [ref=e805]
+          - generic [ref=e806]: 客服
+        - link "回顶部":
+          - /url: javascript:void(0);
+          - img [ref=e809] [cursor=pointer]
+          - generic [ref=e810] [cursor=pointer]: 回顶部
+    - generic [ref=e812]:
+      - generic [ref=e813]:
+        - generic [ref=e815]: 统一社会信用代码：91330110MA2H1CFF2D
+        - generic [ref=e818]: 增值电信业务经营许可证：浙B2-20201551
+        - generic [ref=e821]: 增值电信业务经营许可证（跨地区）：B2-20241485
+        - generic [ref=e824]: 网络食品销售第三方平台提供者备案：浙网食A33000101
+      - generic [ref=e825]:
+        - generic [ref=e827]: 广播电视节目制作经营许可证：（浙）字第07629号
+        - generic [ref=e830]: 营业性演出许可证：浙演经33010120064
+        - generic [ref=e833]: 集邮市场开办者备案：杭集邮备006
+        - link "APP备案号：浙ICP备20016791号-2A" [ref=e836] [cursor=pointer]:
+          - /url: https://beian.miit.gov.cn/?spm=a212ne.20922897.9522938140.2#/Integrated/index
+      - generic [ref=e837]:
+        - link "闲鱼社区隐私政策" [ref=e839] [cursor=pointer]:
+          - /url: https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao202103021554_43790.html
+        - link "软件许可协议" [ref=e842] [cursor=pointer]:
+          - /url: https://terms.alicdn.com/legal-agreement/terms/common_platform_service/20230509172204596/20230509172204596.html
+        - link "闲鱼社区用户服务协议" [ref=e845] [cursor=pointer]:
+          - /url: https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other201708081618_51146.html
+        - link "闲鱼规则" [ref=e848] [cursor=pointer]:
+          - /url: https://h5.m.goofish.com/wow/moyu/moyu-project/doc/pages/v3Lv4OO6VbJS
+        - link "意见征集" [ref=e851] [cursor=pointer]:
+          - /url: https://h5.m.goofish.com/wow/moyu/moyu-project/doc/pages/CQJnCbq230i3
+        - link "算法备案" [ref=e854] [cursor=pointer]:
+          - /url: https://terms.alicdn.com/legal-agreement/terms/privacy_algorithm_theory_state/20221125171956850/20221125171956850.html?spm=a1zaa.8161610.0.0.7db827b7aQ7Ymq
+      - generic [ref=e855]:
+        - generic [ref=e856]:
+          - img [ref=e857]
+          - link "浙公网安备33011002014818号" [ref=e858] [cursor=pointer]:
+            - /url: https://www.beian.gov.cn/portal/registerSystemInfo?spm=2007.1000261.0.0.660534f17KIS1E&recordcode=33011002014818
+        - generic [ref=e860]:
+          - img [ref=e861]
+          - link "电子营业执照" [ref=e862] [cursor=pointer]:
+            - /url: https://intranetproxy.alipay.com/skylark/lark/0/2023/png/40591/1692327101072-570e6872-655c-4d61-b9b9-a1fbd1ca82fb.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_1500%2Climit_0
+        - generic [ref=e865]: © Goofish.com 版权所有
+      - generic [ref=e866]:
+        - link [ref=e867]:
+          - /url: https://www.12377.cn/?spm=a21bo.jianhua/a.1997523009.49.5af92a89T43VX8
+          - img [ref=e868] [cursor=pointer]
+        - link [ref=e869]:
+          - /url: https://www.12377.cn/node_548446.htm?spm=a21bo.jianhua/a.1997523009.50.5af92a89T43VX8
+          - img [ref=e870] [cursor=pointer]
+        - generic [ref=e871]:
+          - paragraph [ref=e872]: 推动绿色发展，促进闲置流通
+          - generic [ref=e873]:
+            - link "《促进绿色消费实施方案》" [ref=e874] [cursor=pointer]:
+              - /url: https://www.gov.cn/zhengce/zhengceku/2022-01/21/content_5669785.htm
+            - link "《关于加快废旧物资循环利用体系建设的指导意见》" [ref=e875] [cursor=pointer]:
+              - /url: https://www.gov.cn/zhengce/zhengceku/2022-01/22/content_5669857.htm
+    - generic [ref=e876] [cursor=pointer]:
+      - img [ref=e877]
+      - img [ref=e878]

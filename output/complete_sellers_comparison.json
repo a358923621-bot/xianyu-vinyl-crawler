@@ -1,0 +1,311 @@
+{
+  "comparison_date": "2026-02-06",
+  "sellers": [
+    {
+      "name": "音乐大同",
+      "url": "https://www.goofish.com/personal?userId=2219735146783",
+      "total_products": 202
+    },
+    {
+      "name": "梦的采摘员",
+      "url": "https://www.goofish.com/personal?userId=1059107164",
+      "total_products": 133
+    }
+  ],
+  "overlapping_products": [
+    {
+      "product": "The fin. - Somewhere Between",
+      "yinyuedatong": {"title": "预定The fin. - Somewhere Between", "price": "260"},
+      "mengdezhihaiyuan": {"title": "【预定】The fin. - Somewhere Betwe", "price": "286", "withinWeek": true},
+      "price_diff": "+26 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Bad Bunny - Debi Tirar Mas",
+      "yinyuedatong": {"title": "预定Bad Bunny - Debi Tirar Mas F", "price": "330"},
+      "mengdezhihaiyuan": {"title": "Bad Bunny - Debi Tirar Mas", "price": "356", "withinWeek": true},
+      "price_diff": "+26 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Gracie Abrams - The Secret Of",
+      "yinyuedatong": {"title": "瓜西Gracie Abrams - The Secret O", "price": "285"},
+      "mengdezhihaiyuan": {"title": "瓜西Gracie Abrams - The Secret O", "price": "310", "withinWeek": true},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Hamilton: 10 Shots",
+      "yinyuedatong": {"title": "汉密尔顿Hamilton: 10 Shots 精选集限量紫胶", "price": "275"},
+      "mengdezhihaiyuan": {"title": "汉密尔顿 Hamilton: 10 Shots 精选集限量大", "price": "305"},
+      "price_diff": "+30 (梦的采摘员更贵)"
+    },
+    {
+      "product": "温蒂漫步 - Midnight Blue",
+      "yinyuedatong": {"title": "温蒂漫步 - Midnight Blue 限量彩胶", "price": "445"},
+      "mengdezhihaiyuan": {"title": "温蒂漫步 - Midnight Blue 限量彩胶1LP", "price": "470", "within24Hours": true},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Nujabes - Modal Soul",
+      "yinyuedatong": {"title": "Nujabes - Modal Soul 双黑胶", "price": "310"},
+      "mengdezhihaiyuan": {"title": "Nujabes - Modal Soul 黑胶2LP", "price": "335", "within24Hours": true},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Kanye West - Late Registration",
+      "yinyuedatong": {"title": "侃爷Kanye West - Late Registraio", "price": "288"},
+      "mengdezhihaiyuan": {"title": "侃爷Kanye West - Late Regis", "price": "313", "within72Hours": true},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "F1 The Album",
+      "yinyuedatong": {"title": "F1 The Album 电影原声金色胶", "price": "215"},
+      "mengdezhihaiyuan": {"title": "F1 The Album 电影原声金色胶/红胶", "price": "236"},
+      "price_diff": "+21 (梦的采摘员更贵)"
+    },
+    {
+      "product": "The 1975 - I like it when you",
+      "yinyuedatong": {"title": "预定The 1975 - I like it when yo", "price": "345"},
+      "mengdezhihaiyuan": {"title": "The 1975 - I like it when you", "price": "370"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Harry Styles - Kiss All The",
+      "yinyuedatong": {"title": "预定Harry Styles - Kiss All The", "price": "315"},
+      "mengdezhihaiyuan": {"title": "Harry Styles - Kiss All Th", "price": "339"},
+      "price_diff": "+24 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Bubble Tea and Cigarettes",
+      "yinyuedatong": {"title": "Bubble Tea and Cigarettes - Th", "price": "295"},
+      "mengdezhihaiyuan": {"title": "Bubble Tea and Cigarettes - Th", "price": "320"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "d4vd - Petals To Thorns",
+      "yinyuedatong": {"title": "d4vd - Petals To Thorns 限量黑冰胶", "price": "275"},
+      "mengdezhihaiyuan": {"title": "d4vd - Petals To Thorns 限量黑冰胶", "price": "298"},
+      "price_diff": "+23 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Raye - This Music May",
+      "yinyuedatong": {"title": "预定Raye - This Music May Contai", "price": "318"},
+      "mengdezhihaiyuan": {"title": "Raye - This Music May Cont", "price": "343"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Arlo Parks - Ambiguous Des",
+      "yinyuedatong": {"title": "预定Arlo Parks - Ambiguous Desir", "price": "270"},
+      "mengdezhihaiyuan": {"title": "Arlo Parks - Ambiguous Des", "price": "295"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "John Coltrane - The Best Of",
+      "yinyuedatong": {"title": "预定John Coltrane - The Best Of", "price": "230"},
+      "mengdezhihaiyuan": {"title": "John Coltrane-The Best Of", "price": "256"},
+      "price_diff": "+26 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Tom Misch - Full Circle",
+      "yinyuedatong": {"title": "预定Tom Misch - Full Circle蓝胶", "price": "300"},
+      "mengdezhihaiyuan": {"title": "Tom Misch - Full Circle蓝胶", "price": "325", "withinWeek": true},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Kanye West - YE",
+      "yinyuedatong": {"title": "侃爷Kanye West - Ye 黑胶", "price": "268"},
+      "mengdezhihaiyuan": {"title": "侃爷Kanye West-YE 黑胶1LP", "price": "292", "withinWeek": true},
+      "price_diff": "+24 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Sabrina Carpenter - Evolution",
+      "yinyuedatong": {"title": "匠妹Sabrina Carpenter-Man's Best", "price": "255"},
+      "mengdezhihaiyuan": {"title": "Evolution-Sabrina Carpenter匠妹", "price": "280"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Charli XCX - Wuthering Heights",
+      "yinyuedatong": {"title": "预定Charli XCX - Wuthering Heigh", "price": "230"},
+      "mengdezhihaiyuan": {"title": "Charli XCX-Wuthering Heigh", "price": "255"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "matryoshka - Laideronnette",
+      "yinyuedatong": {"title": "预定matryoshka - Laideronnette日版", "price": "368"},
+      "mengdezhihaiyuan": {"title": "matryoshka - Laideronnette日版金色", "price": "395"},
+      "price_diff": "+27 (梦的采摘员更贵)"
+    },
+    {
+      "product": "落日飞车 - 金桔希子",
+      "yinyuedatong": {"title": "落日飞车 金桔希子Jinji Kikko 粉红胶", "price": "265"},
+      "mengdezhihaiyuan": {"title": "落日飞车 金桔希子Jinji Kikko 粉红胶", "price": "299"},
+      "price_diff": "+34 (梦的采摘员更贵)"
+    },
+    {
+      "product": "落日飞车 - Quit Quietly",
+      "yinyuedatong": {"title": "落日飞车 - Quit Quietly悄悄消消 透明胶", "price": "355"},
+      "mengdezhihaiyuan": {"title": "落日飞车 - Quit Quietly悄悄消消 透", "price": "382"},
+      "price_diff": "+27 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Ed Sheeran - Play",
+      "yinyuedatong": {"title": "黄老板Ed Sheeran - Play粉胶附签名拍立得", "price": "278"},
+      "mengdezhihaiyuan": {"title": "黄老板Ed Sheeran - Play粉胶附签名拍立得", "price": "305"},
+      "price_diff": "+27 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Olivia Rodrigo - Live from Glasgow",
+      "yinyuedatong": {"title": "Olivia Rodrigo - Live from Gla", "price": "298"},
+      "mengdezhihaiyuan": {"title": "Billie Eilish - Live EP十吋胶", "price": "259"},
+      "note": "不同商品（梦的采摘员是Billie Eilish）"
+    },
+    {
+      "product": "Wednesday (Wednesday)",
+      "yinyuedatong": {"title": "Wednesday星期三-第二季原声紫色胶", "price": "310"},
+      "mengdezhihaiyuan": {"title": "星期三Wednesday-Amazon独占紫胶1LP 第二季", "price": "335"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Zootopia/Shakira",
+      "yinyuedatong": {"title": "疯狂动物城二Shakira - Zoo七吋紫胶", "price": "176"},
+      "mengdezhihaiyuan": {"title": "夏奇拉Shakira-Zoo 疯狂动物城 2 Zootopi", "price": "191"},
+      "price_diff": "+15 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Lauv - I Met You When I Was",
+      "yinyuedatong": {"title": "六公主LAUV - I MET YOU WHEN I WAS", "price": "315"},
+      "mengdezhihaiyuan": {"title": "Lauv六公主-I Met You When I Was 1", "price": "332", "withinWeek": true},
+      "price_diff": "+17 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Glass Animals - Dreamland",
+      "yinyuedatong": {"title": "Glass Animals-Dreamland透明绿胶", "price": "175"},
+      "mengdezhihaiyuan": {"title": "Glass Animals-Dreamland透明绿胶", "price": "199", "withinWeek": true},
+      "price_diff": "+24 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Molchat Doma - Etazhi",
+      "yinyuedatong": {"title": "Molchat Doma - Этажi (Etazhi)可", "price": "200"},
+      "mengdezhihaiyuan": {"title": "Molchat Doma - Этажi (Etazhi)可", "price": "226"},
+      "price_diff": "+26 (梦的采摘员更贵)"
+    },
+    {
+      "product": "The Marías - Submarine",
+      "yinyuedatong": {"title": "The Marías - Submarine透明胶", "price": "250"},
+      "mengdezhihaiyuan": {"title": "The Marías - Submarine透明胶 1LP", "price": "275"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Mazzy Star - So Tonight That I",
+      "yinyuedatong": {"title": "Mazzy Star - So Tonight That I", "price": "245"},
+      "mengdezhihaiyuan": {"title": "Mazzy Star-So Tonight That I M", "price": "262"},
+      "price_diff": "+17 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Durand Jones & The Indications",
+      "yinyuedatong": {"title": "Durand Jones & The Indications", "price": "208"},
+      "mengdezhihaiyuan": {"title": "Durand Jones & The Indications", "price": "236"},
+      "price_diff": "+28 (梦的采摘员更贵)"
+    },
+    {
+      "product": "高桥洋子 - 残酷天使的行动纲领",
+      "yinyuedatong": {"title": "预定 高桥洋子 - 残酷天使的行动纲领 / 魂之轮回", "price": "230"},
+      "mengdezhihaiyuan": {"title": "高桥洋子Yoko Takahashi - 残酷天使的行动纲领", "price": "260"},
+      "price_diff": "+30 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Spider-Man: Into The Spider-Verse",
+      "yinyuedatong": {"title": "蜘蛛侠：平行宇宙 黑胶SPIDER-MAN: INTO TH", "price": "270"},
+      "mengdezhihaiyuan": {"title": "蜘蛛侠：平行宇宙 Spider-Man: Into The", "price": "298"},
+      "price_diff": "+28 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Fred Again.. - USB002",
+      "yinyuedatong": {"title": "现货Fred Again.. - USB002黑胶", "price": "265"},
+      "mengdezhihaiyuan": {"title": "USB002 -Fred again..双黑胶2LP", "price": "299"},
+      "price_diff": "+34 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Toy Story: Songs To Infinity",
+      "yinyuedatong": {"title": "玩具总动员Toy Story: Songs To Infin", "price": "265"},
+      "mengdezhihaiyuan": {"title": "玩具总动员Toy Story: Songs to Infin", "price": "288"},
+      "price_diff": "+23 (梦的采摘员更贵)"
+    },
+    {
+      "product": "The Nightmare Before Christmas",
+      "yinyuedatong": {"title": "圣诞夜惊魂The Nightmare Before Chri", "price": "298"},
+      "mengdezhihaiyuan": {"title": "圣诞夜惊魂The Nightmare Before Chri", "price": "319"},
+      "price_diff": "+21 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Twice - Ten: The Story Goes On",
+      "yinyuedatong": {"title": "Twice - Ten: The Story Goes On", "price": "295"},
+      "mengdezhihaiyuan": {"title": "Twice - Ten: The Story Goes On", "price": "320"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "米津玄师 - Iris Out",
+      "yinyuedatong": {"title": "预定 米津玄师 - Iris Out/ Jane Doe黑胶", "price": "215"},
+      "mengdezhihaiyuan": {"title": "米津玄师 Iris Out/ Jane Doe黑胶", "price": "225"},
+      "price_diff": "+10 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Frozen (Zoetrope Vinyl)",
+      "yinyuedatong": {"title": "冰雪奇缘Frozen歌曲 动态画胶", "price": "290"},
+      "mengdezhihaiyuan": {"title": "冰雪奇缘 Frozen (Zoetrope Vinyl 动画", "price": "315"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "A Charlie Brown Christmas",
+      "yinyuedatong": {"title": "查理布朗圣诞节动态画胶", "price": "270"},
+      "mengdezhihaiyuan": {"title": "查理布朗圣诞节动态画胶A Charlie Brown", "price": "298"},
+      "price_diff": "+28 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Pink Floyd - Wish You Were Here",
+      "yinyuedatong": {"title": "Pink Floyd - Wish You Were Her", "price": "280"},
+      "mengdezhihaiyuan": {"title": "Wish You Were Here 50-Pink Flo", "price": "305"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Tyler, The Creator - FLOWER BOY",
+      "yinyuedatong": {"title": "Tyler, The Creator - FLOWER BO", "price": "288"},
+      "mengdezhihaiyuan": {"title": "Tyler, The Creator - FLOWER BO", "price": "300"},
+      "price_diff": "+12 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Charlie Puth - Whatever's.../Nine Track Mind",
+      "yinyuedatong": {"title": "断眉哥Charlie Puth - Nine Track M", "price": "252"},
+      "mengdezhihaiyuan": {"title": "断眉哥Charlie Puth - Whatever&#39", "price": "255"},
+      "note": "可能不同专辑"
+    },
+    {
+      "product": "Les Misérables (悲惨世界)",
+      "yinyuedatong": {"title": "悲惨世界Les Misérables 演唱会十周年双黑胶", "price": "270"},
+      "mengdezhihaiyuan": {"title": "悲惨世界 Les Misérables-10周年纪念演唱会黑", "price": "295"},
+      "price_diff": "+25 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Lana Del Rey - Born To Die",
+      "yinyuedatong": {"title": "打雷姐Lana Del Rey - Born To Die双", "price": "285"},
+      "mengdezhihaiyuan": {"title": "打雷姐Lana Del Rey - Born To Die双", "price": "322"},
+      "price_diff": "+37 (梦的采摘员更贵)"
+    },
+    {
+      "product": "Wicked (魔法坏女巫)",
+      "yinyuedatong": {"title": "Wicked For Good-魔法坏女巫2 电影原声 -", "price": "365"},
+      "mengdezhihaiyuan": {"title": "Wicked: for Good - O.s.t.-魔法坏女", "price": "465"},
+      "price_diff": "+100 (梦的采摘员更贵)"
+    }
+  ],
+  "unique_to_yinyuedatong_count": 145,
+  "unique_to_mengdezhihaiyuan_count": 76,
+  "summary": {
+    "total_overlapping": 51,
+    "price_comparison": "梦的采摘员的价格普遍比音乐大同高20-30元",
+    "new_listings_mengdezhihaiyuan": {
+      "within24h": ["温蒂漫步 - Midnight Blue", "Nujabes - Modal Soul"],
+      "within48h": [],
+      "within72h": ["Kanye West - Late Registration", "Polyphia-Remember That Yo", "Cory Wong & Metropole Orkest"],
+      "withinWeek": ["The fin.", "Bad Bunny", "Gracie Abrams", "Tom Misch", "Kanye West - YE", "Lauv", "Glass Animals"]
+    }
+  }
+}

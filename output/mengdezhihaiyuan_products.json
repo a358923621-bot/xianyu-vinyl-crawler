@@ -1,0 +1,33 @@
+{
+  "seller": "梦的采摘员",
+  "url": "https://m.tb.cn/h.7F45JlY?tk=RpZaU9DWD7B",
+  "location": "广西壮族自治区",
+  "fans": 47,
+  "total_products": 207,
+  "on_sale": 174,
+  "sold": 33,
+  "products": [
+    {"name": "陈娴静《如果每天都可以 happy happy 谁想要sad", "price": "386", "within24Hours": false},
+    {"name": "【包顺丰】Lady Gaga - Artpop黑胶2LP", "price": "315", "within24Hours": true},
+    {"name": "【预定】 侃爷Kanye West - BULLY新专辑黑胶", "price": "285", "within24Hours": true},
+    {"name": "【预定】麦当娜Madonna-Confession On T", "price": "293", "within24Hours": true},
+    {"name": "温蒂漫步 - Midnight Blue 限量彩胶1LP", "price": "470", "within24Hours": true},
+    {"name": "Nujabes - Modal Soul 黑胶2LP", "price": "335", "within24Hours": true},
+    {"name": "【包顺丰】Rich Brian新专Where Is My H", "price": "368", "within24Hours": false},
+    {"name": "【签名珍藏版】陈粒十年音乐作品集 收藏版含签名编号", "price": "4380", "within24Hours": false},
+    {"name": "【包顺丰】碧梨Billie Eilish- Hit Me H", "price": "293", "within24Hours": false},
+    {"name": "Lady Gaga-Mayhem混乱 黑胶2LP", "price": "306", "within24Hours": false},
+    {"name": "Cory Wong & Metropole Orkest", "price": "310", "within24Hours": false},
+    {"name": "【包顺丰】Polyphia-Remember That Yo", "price": "313", "within24Hours": false},
+    {"name": "【包顺丰】侃爷Kanye West - Late Regis", "price": "313", "within24Hours": false},
+    {"name": "F1 The Album 电影原声金色胶/红胶", "price": "236", "within24Hours": false},
+    {"name": "【预定】Bad Bunny - Debi Tirar Mas", "price": "356", "within24Hours": false},
+    {"name": "A妹Ariana Grande - eternal suns", "price": "263", "within24Hours": false},
+    {"name": "Like A Fable -Shintaro Sakamot", "price": "219", "within24Hours": false},
+    {"name": "【预定】The fin. - Somewhere Betwe", "price": "286", "within24Hours": false},
+    {"name": "瓜西Gracie Abrams - The Secret O", "price": "310", "within24Hours": false},
+    {"name": "汉密尔顿 Hamilton: 10 Shots 精选集限量大", "price": "305", "within24Hours": false},
+    {"name": "Stranger Things 5 怪奇物语第五季黑胶1LP", "price": "259", "within24Hours": false}
+  ],
+  "note": "数据来自首页部分商品，完整数据需要登录后滚动加载全部207个商品"
+}
