@@ -160,14 +160,24 @@ function formatIncrementalReport(sellerData) {
  * 发送 WhatsApp 消息
  */
 async function sendWhatsApp(message) {
-  const from = process.env.TWILIO_WHATSAPP_FROM;
-  const to = process.env.TWILIO_WHATSAPP_TO;
+  let from = process.env.TWILIO_WHATSAPP_FROM;
+  let to = process.env.TWILIO_WHATSAPP_TO;
 
   if (!from || !to) {
     console.error('❌ 缺少 WhatsApp 配置');
     console.error('请设置 TWILIO_WHATSAPP_FROM 和 TWILIO_WHATSAPP_TO 环境变量');
     return false;
   }
+
+  // 确保 from 和 to 有正确的 whatsapp: 前缀
+  if (!from.startsWith('whatsapp:')) {
+    from = `whatsapp:${from}`;
+  }
+  if (!to.startsWith('whatsapp:')) {
+    to = `whatsapp:${to}`;
+  }
+
+  console.log(`📤 发送消息: ${from} -> ${to}`);
 
   try {
     const response = await client.messages.create({
@@ -178,10 +188,17 @@ async function sendWhatsApp(message) {
 
     console.log('✅ WhatsApp 消息已发送');
     console.log(`   SID: ${response.sid}`);
+    console.log(`   状态: ${response.status}`);
     return true;
 
   } catch (error) {
     console.error('❌ WhatsApp 发送失败:', error.message);
+    if (error.code) {
+      console.error(`   错误代码: ${error.code}`);
+    }
+    if (error.moreInfo) {
+      console.error(`   详情: ${error.moreInfo}`);
+    }
     return false;
   }
 }
