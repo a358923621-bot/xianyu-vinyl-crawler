@@ -53,20 +53,92 @@ async function scrapeSeller(sellerId, browser) {
       }
       await page.waitForTimeout(1500);
 
-      // 提取当前页面的商品
+      // 提取当前页面的商品 - 使用更全面的选择器
       const items = await page.evaluate(() => {
-        const elements = document.querySelectorAll('[class*="SearchItem"], [class*="CardItem"], [class*="ItemCard"]');
-        return Array.from(elements).map(el => {
-          const titleEl = el.querySelector('[class*="title"], [class*="Title"]');
-          const priceEl = el.querySelector('[class*="price"], [class*="Price"]');
-          const linkEl = el.querySelector('a');
+        // 尝试多种选择器策略
+        const selectors = [
+          // Goofish/闲鱼 specific selectors
+          '[class*="SearchItem"]',
+          '[class*="search-item"]',
+          '[class*="CardItem"]',
+          '[class*="card-item"]',
+          '[class*="ItemCard"]',
+          '[class*="item-card"]',
+          // 通用商品卡片
+          '[class*="goods"]',
+          '[class*="product"]',
+          '[class*="Item"]',
+          // 闲鱼特定
+          '.sell-item',
+          '[data-testid*="item"]',
+          '[class*="Gm"]', // 闲鱼常用前缀
+        ];
 
-          return {
-            title: titleEl?.textContent?.trim() || '',
-            price: priceEl?.textContent?.trim() || '',
-            link: linkEl?.href || ''
-          };
-        }).filter(item => item.title);
+        let allElements = [];
+        for (const selector of selectors) {
+          try {
+            const found = document.querySelectorAll(selector);
+            if (found.length > 0) {
+              allElements = allElements.concat(Array.from(found));
+            }
+          } catch (e) {
+            // 忽略无效选择器
+          }
+        }
+
+        // 去重
+        const uniqueElements = Array.from(new Set(allElements));
+
+        return uniqueElements.map(el => {
+          // 尝试多种方式获取标题
+          const titleSelectors = [
+            '[class*="title"]',
+            '[class*="Title"]',
+            '[class*="name"]',
+            '[class*="Name"]',
+            'h1', 'h2', 'h3', 'h4',
+            '.text',
+            'a',
+          ];
+
+          let titleEl = null;
+          for (const selector of titleSelectors) {
+            titleEl = el.querySelector(selector);
+            if (titleEl && titleEl.textContent && titleEl.textContent.trim().length > 5) {
+              break;
+            }
+          }
+
+          // 尝试多种方式获取价格
+          const priceSelectors = [
+            '[class*="price"]',
+            '[class*="Price"]',
+            '[class*="amount"]',
+            '[class*="Amount"]',
+            '[class*="money"]',
+            '[class*="cost"]',
+          ];
+
+          let priceEl = null;
+          for (const selector of priceSelectors) {
+            priceEl = el.querySelector(selector);
+            if (priceEl) break;
+          }
+
+          // 获取链接
+          const linkEl = el.querySelector('a') || el.closest('a');
+
+          const title = titleEl?.textContent?.trim() || '';
+          const price = priceEl?.textContent?.trim() || '';
+          const link = linkEl?.href || '';
+
+          // 过滤掉无效结果
+          if (!title || title.length < 3) return null;
+          // 过滤掉导航菜单等非商品项
+          if (title.includes('首页') || title.includes('返回') || title.includes('登录')) return null;
+
+          return { title, price, link };
+        }).filter(item => item !== null && item.title.length > 3);
       });
 
       // 去重并添加
