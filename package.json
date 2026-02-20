@@ -1,0 +1,30 @@
+{
+  "name": "xianyu-vinyl-crawler",
+  "version": "1.0.0",
+  "description": "闲鱼黑胶唱片自动监控爬虫",
+  "main": "index.js",
+  "scripts": {
+    "scrape:full": "node scripts/scrape-full.js",
+    "scrape:incremental": "node scripts/scrape-incremental.js",
+    "compare": "node scripts/compare-smart.js",
+    "analyze": "node scripts/analyze-smart.js",
+    "notify": "node scripts/notify-whatsapp.js",
+    "notify:whatsapp": "node scripts/notify-whatsapp.js"
+  },
+  "keywords": [
+    "xianyu",
+    "crawler",
+    "vinyl",
+    "playwright",
+    "github-actions"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "twilio": "^5.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Output
+output/
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Playwright
+playwright-report/
+test-results/
+pw-browsers/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+tmp/
+temp/
+.cache/
+
+# Data (optional - comment out if you want to track data)
+# data/

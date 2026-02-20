@@ -1,0 +1,228 @@
+name: 闲鱼黑胶唱片监控
+
+on:
+  # 定时触发
+  schedule:
+    # 每天早上8点(UTC+8)执行全量抓取 -> UTC 0:00
+    - cron: '0 0 * * *'
+    # 每4小时执行增量抓取
+    - cron: '0 */4 * * *'
+  
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: '抓取模式'
+        required: true
+        type: choice
+        options:
+          - full
+          - incremental
+          - analyze_only
+        default: 'full'
+      seller:
+        description: '目标卖家'
+        required: false
+        type: choice
+        options:
+          - all
+          - yinyuedatong
+          - mengde
+        default: 'all'
+
+env:
+  NODE_VERSION: '20'
+  PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/pw-browsers
+
+jobs:
+  scrape-full:
+    name: 全量抓取
+    if: github.event_name == 'schedule' && github.event.schedule == '0 0 * * *' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'full')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: 安装依赖
+        run: |
+          npm ci
+          npx playwright install chromium
+      
+      - name: 创建输出目录
+        run: mkdir -p output
+      
+      - name: 抓取音乐大同数据
+        env:
+          SELLER_URL: ${{ secrets.YINYUEDATONG_URL }}
+        run: |
+          node scripts/scrape-full.js yinyuedatong || true
+        continue-on-error: true
+      
+      - name: 抓取梦的采摘员数据
+        env:
+          SELLER_URL: ${{ secrets.MENGDE_URL }}
+        run: |
+          node scripts/scrape-full.js mengde || true
+        continue-on-error: true
+      
+      - name: 上传抓取结果
+        uses: actions/upload-artifact@v4
+        with:
+          name: scrape-results-${{ github.run_number }}
+          path: output/*.json
+          retention-days: 30
+      
+      - name: 生成分析报告
+        run: node scripts/analyze-smart.js
+      
+      - name: 上传分析报告
+        uses: actions/upload-artifact@v4
+        with:
+          name: analysis-report-${{ github.run_number }}
+          path: output/analysis_*.json
+          retention-days: 90
+
+  scrape-incremental:
+    name: 增量抓取
+    if: github.event_name == 'schedule' && github.event.schedule == '0 */4 * * *' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'incremental')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: 安装依赖
+        run: |
+          npm ci
+          npx playwright install chromium
+      
+      - name: 创建输出目录
+        run: mkdir -p output
+      
+      - name: 下载历史数据
+        uses: actions/download-artifact@v4
+        with:
+          pattern: scrape-results-*
+          path: output
+          merge-multiple: true
+        continue-on-error: true
+      
+      - name: 增量抓取
+        env:
+          SELLER_URL: ${{ secrets.YINYUEDATONG_URL }}
+        run: |
+          node scripts/scrape-incremental.js || true
+        continue-on-error: true
+      
+      - name: 对比分析
+        run: node scripts/compare-smart.js || true
+        continue-on-error: true
+      
+      - name: 发送通知
+        if: env.TWILIO_ACCOUNT_SID != ''
+        env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
+          TWILIO_WHATSAPP_TO: ${{ secrets.TWILIO_WHATSAPP_TO }}
+        run: |
+          node scripts/notify-whatsapp.js incremental || true
+        continue-on-error: true
+
+  analyze-only:
+    name: 仅分析
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'analyze_only'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: 安装依赖
+        run: npm ci
+      
+      - name: 下载所有历史数据
+        uses: actions/download-artifact@v4
+        with:
+          pattern: scrape-results-*
+          path: output
+          merge-multiple: true
+      
+      - name: 生成智能分析报告
+        run: node scripts/analyze-smart.js
+      
+      - name: 上传分析报告
+        uses: actions/upload-artifact@v4
+        with:
+          name: analysis-report-${{ github.run_number }}
+          path: output/analysis_*.json
+          retention-days: 90
+      
+      - name: 发送报告
+        if: env.TWILIO_ACCOUNT_SID != ''
+        env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
+          TWILIO_WHATSAPP_TO: ${{ secrets.TWILIO_WHATSAPP_TO }}
+        run: |
+          node scripts/notify-whatsapp.js full || true
+
+  send-report:
+    name: 发送日报
+    needs: [scrape-full]
+    if: always() && needs.scrape-full.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: 安装依赖
+        run: npm ci
+      
+      - name: 下载分析结果
+        uses: actions/download-artifact@v4
+        with:
+          name: analysis-report-${{ github.run_number }}
+          path: output
+      
+      - name: 发送 WhatsApp 报告
+        if: env.TWILIO_ACCOUNT_SID != ''
+        env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
+          TWILIO_WHATSAPP_TO: ${{ secrets.TWILIO_WHATSAPP_TO }}
+        run: |
+          node scripts/notify-whatsapp.js full
+        continue-on-error: true
