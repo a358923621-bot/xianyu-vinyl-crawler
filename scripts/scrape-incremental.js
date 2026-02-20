@@ -11,11 +11,11 @@ const { chromium } = require('playwright');
 const SELLERS = {
   yinyuedatong: {
     name: '音乐大同',
-    url: process.env.YINYUEDATONG_URL || 'https://goofish.com/search?q=音乐大同&category=黑胶唱片'
+    url: process.env.YINYUEDATONG_URL || 'https://www.goofish.com/personal?userId=2219735146783'
   },
   mengde: {
     name: '梦的采摘员',
-    url: process.env.MENGDE_URL || 'https://goofish.com/search?q=梦的采摘员&category=黑胶唱片'
+    url: process.env.MENGDE_URL || 'https://www.goofish.com/personal?userId=1059107164'
   }
 };
 
