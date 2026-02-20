@@ -193,7 +193,7 @@ jobs:
   send-report:
     name: 发送日报
     needs: [scrape-full]
-    if: always() && needs.scrape-full.result == 'success'
+    if: always()  # 总是尝试发送报告，即使抓取失败
     runs-on: ubuntu-latest
     timeout-minutes: 5
     
@@ -217,12 +217,34 @@ jobs:
           path: output
       
       - name: 发送 WhatsApp 报告
-        if: env.TWILIO_ACCOUNT_SID != ''
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
           TWILIO_WHATSAPP_TO: ${{ secrets.TWILIO_WHATSAPP_TO }}
         run: |
+          echo "检查 Twilio 配置..."
+          if [ -n "$TWILIO_ACCOUNT_SID" ]; then
+            echo "✓ TWILIO_ACCOUNT_SID 已配置"
+          else
+            echo "✗ TWILIO_ACCOUNT_SID 未配置"
+          fi
+          if [ -n "$TWILIO_AUTH_TOKEN" ]; then
+            echo "✓ TWILIO_AUTH_TOKEN 已配置"
+          else
+            echo "✗ TWILIO_AUTH_TOKEN 未配置"
+          fi
+          if [ -n "$TWILIO_WHATSAPP_FROM" ]; then
+            echo "✓ TWILIO_WHATSAPP_FROM: $TWILIO_WHATSAPP_FROM"
+          else
+            echo "✗ TWILIO_WHATSAPP_FROM 未配置"
+          fi
+          if [ -n "$TWILIO_WHATSAPP_TO" ]; then
+            echo "✓ TWILIO_WHATSAPP_TO: $TWILIO_WHATSAPP_TO"
+          else
+            echo "✗ TWILIO_WHATSAPP_TO 未配置"
+          fi
+          echo ""
+          echo "开始发送报告..."
           node scripts/notify-whatsapp.js full
         continue-on-error: true
