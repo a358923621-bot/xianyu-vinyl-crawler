@@ -1,8 +1,10 @@
-# Xianyu Vinyl Record Crawler
+# 闲鱼黑胶唱片监控爬虫
 
-闲鱼黑胶唱片爬虫 - 持续监控服务，支持扫码登录，输出JSON格式数据。
+> 自动监控闲鱼黑胶唱片价格变化，实时通知新上架商品
 
-## 功能特点
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Enabled-blue)](.github/workflows/xianyu-monitor.yml)
+
+## ✨ 功能特点
 
 - **扫码登录**: 支持使用淘宝/支付宝扫码登录闲鱼
 - **定时监控**: 支持增量爬取（每4小时）和全量爬取（每天凌晨）
@@ -123,6 +125,47 @@ python scripts/export.py --stats
 | 增量爬取 | 每4小时 | 爬取前20页 |
 | 全量爬取 | 每天凌晨2点 | 爬取前100页 |
 | 数据导出 | 每天早上8点 | 导出JSON数据 |
+
+## 🚀 GitHub Actions 自动化
+
+本项目支持 GitHub Actions 自动化运行，无需本地服务器。
+
+### 快速开始
+
+1. **Fork 本仓库** 或推送到你的 GitHub
+
+2. **配置 Secrets**
+   - 进入 `Settings` → `Secrets and variables` → `Actions`
+   - 添加以下 Secrets:
+
+   **使用 WhatsApp:**
+     - `TWILIO_ACCOUNT_SID`: Twilio 账号 SID
+     - `TWILIO_AUTH_TOKEN`: Twilio 认证令牌
+     - `TWILIO_WHATSAPP_FROM`: WhatsApp 发送号码（如 `whatsapp:+14155238886`）
+     - `TWILIO_WHATSAPP_TO`: 你的手机号（如 `whatsapp:+8613800138000`）
+
+   **或使用 Telegram:**
+     - `TELEGRAM_BOT_TOKEN`: Telegram Bot Token
+     - `TELEGRAM_CHAT_ID`: Telegram Chat ID
+
+   📖 **详细配置**:
+     - [WhatsApp 配置指南](docs/WHATSAPP_SETUP.md)
+     - [GitHub Actions 配置指南](docs/GITHUB_ACTIONS_SETUP.md)
+
+3. **启用 Actions**
+   - 进入 `Actions` 标签
+   - 点击启用工作流
+
+4. **完成！**
+   - 每天8点自动全量爬取
+   - 每4小时自动增量更新
+   - 新商品自动推送到 WhatsApp / Telegram
+
+📖 **详细配置**:
+   - [WhatsApp 配置指南](docs/WHATSAPP_SETUP.md)
+   - [GitHub Actions 配置指南](docs/GITHUB_ACTIONS_SETUP.md)
+
+📖 **详细配置**: [GitHub Actions 配置指南](docs/GITHUB_ACTIONS_SETUP.md)
 
 ## 配置
 
