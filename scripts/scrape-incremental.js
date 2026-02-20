@@ -5,7 +5,11 @@
 
 const fs = require('fs');
 const path = require('path');
-const { chromium } = require('playwright');
+const { chromium } = require('playwright-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+
+// 使用 stealth 插件隐藏自动化特征
+chromium.use(StealthPlugin());
 
 // 卖家配置
 const SELLERS = {
@@ -55,9 +59,59 @@ async function scrapeIncremental(sellerId, browser) {
 
   const page = await browser.newPage();
 
+  // 添加反检测脚本
+  await page.addInitScript(() => {
+    // 隐藏 webdriver 属性
+    Object.defineProperty(navigator, 'webdriver', {
+      get: () => undefined,
+    });
+
+    // 伪造 plugins
+    Object.defineProperty(navigator, 'plugins', {
+      get: () => [1, 2, 3, 4, 5],
+    });
+
+    // 伪造 languages
+    Object.defineProperty(navigator, 'languages', {
+      get: () => ['zh-CN', 'zh', 'en'],
+    });
+
+    // 伪装 Chrome 对象
+    window.chrome = {
+      runtime: {},
+    };
+
+    // 伪造 permissions
+    const originalQuery = window.navigator.permissions.query;
+    window.navigator.permissions.query = (parameters) => (
+      parameters.name === 'notifications' ?
+        Promise.resolve({ state: Notification.permission }) :
+        originalQuery(parameters)
+    );
+  });
+
+  // 设置 User-Agent 和 viewport
+  const context = page.context();
+  await context.route('**/*', (route) => {
+    const headers = route.request().headers() || {};
+    headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36';
+    headers['Accept-Language'] = 'zh-CN,zh;q=0.9,en;q=0.8';
+    route.continue({ headers });
+  });
+
+  await page.setViewportSize({ width: 1920, height: 1080 });
+
   try {
     await page.goto(seller.url, { waitUntil: 'networkidle', timeout: 60000 });
     await page.waitForTimeout(3000);
+
+    // 等待商品链接出现（显式等待）
+    try {
+      await page.waitForSelector('a[href*="/item?id="]', { timeout: 15000 });
+      console.log('✓ 检测到商品链接');
+    } catch (e) {
+      console.log('⚠ 未检测到标准商品链接，尝试其他选择器');
+    }
 
     const albums = [];
     const newAlbums = [];
@@ -71,8 +125,13 @@ async function scrapeIncremental(sellerId, browser) {
       await page.waitForTimeout(1000);
 
       const items = await page.evaluate(() => {
-        // 尝试多种选择器策略
+        // 尝试多种选择器策略 - 优先使用实际页面结构
         const selectors = [
+          // 匹配实际页面结构（直接链接）
+          'a[href*="/item?id="]',
+          'a[href*="itemId="]',
+          'a[href*="categoryId="]',
+          // Goofish/闲鱼 specific selectors
           '[class*="SearchItem"]',
           '[class*="search-item"]',
           '[class*="CardItem"]',
@@ -93,6 +152,10 @@ async function scrapeIncremental(sellerId, browser) {
             const found = document.querySelectorAll(selector);
             if (found.length > 0) {
               allElements = allElements.concat(Array.from(found));
+              // 调试输出
+              if (typeof window !== 'undefined' && window.console) {
+                console.log(`选择器 "${selector}" 找到 ${found.length} 个元素`);
+              }
             }
           } catch (e) {
             // 忽略无效选择器
@@ -219,7 +282,14 @@ async function main() {
 
   const browser = await chromium.launch({
     headless: true,
-    args: ['--disable-blink-features=AutomationControlled']
+    args: [
+      '--disable-blink-features=AutomationControlled',
+      '--disable-dev-shm-usage',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-web-security',
+      '--disable-features=IsolateOrigins,site-per-process'
+    ]
   });
 
   try {

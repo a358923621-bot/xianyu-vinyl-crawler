@@ -5,7 +5,11 @@
 
 const fs = require('fs');
 const path = require('path');
-const { chromium } = require('playwright');
+const { chromium } = require('playwright-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+
+// 使用 stealth 插件隐藏自动化特征
+chromium.use(StealthPlugin());
 
 // 卖家配置
 const SELLERS = {
@@ -33,12 +37,127 @@ async function scrapeSeller(sellerId, browser) {
 
   const page = await browser.newPage();
 
-  try {
-    // 访问卖家页面
-    await page.goto(seller.url, { waitUntil: 'networkidle', timeout: 60000 });
+  // 存储 API 响应数据
+  const apiData = [];
 
-    // 等待页面加载
-    await page.waitForTimeout(3000);
+  // 监听 API 响应
+  page.on('response', async (response) => {
+    const url = response.url();
+    // 捕获包含商品数据的 API 响应
+    if (url.includes('search') || url.includes('item') || url.includes('list') || url.includes('product')) {
+      try {
+        const contentType = response.headers()['content-type'];
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          apiData.push({ url, data });
+          console.log(`✓ 捕获 API 响应: ${url.substring(0, 80)}...`);
+        }
+      } catch (e) {
+        // 忽略非 JSON 响应
+      }
+    }
+  });
+
+  // 添加反检测脚本
+  await page.addInitScript(() => {
+    // 隐藏 webdriver 属性
+    Object.defineProperty(navigator, 'webdriver', {
+      get: () => undefined,
+    });
+
+    // 伪造 plugins
+    Object.defineProperty(navigator, 'plugins', {
+      get: () => [1, 2, 3, 4, 5],
+    });
+
+    // 伪造 languages
+    Object.defineProperty(navigator, 'languages', {
+      get: () => ['zh-CN', 'zh', 'en'],
+    });
+
+    // 伪装 Chrome 对象
+    window.chrome = {
+      runtime: {},
+    };
+
+    // 伪造 permissions
+    const originalQuery = window.navigator.permissions.query;
+    window.navigator.permissions.query = (parameters) => (
+      parameters.name === 'notifications' ?
+        Promise.resolve({ state: Notification.permission }) :
+        originalQuery(parameters)
+    );
+  });
+
+  // 设置 viewport
+  await page.setViewportSize({ width: 1920, height: 1080 });
+
+  try {
+    // 访问卖家页面 - 等待加载完成
+    await page.goto(seller.url, { waitUntil: 'load', timeout: 60000 });
+
+    // 等待 React 渲染完成
+    await page.waitForTimeout(5000);
+
+    // 尝试等待搜索结果容器
+    try {
+      await page.waitForFunction(() => {
+        // 等待页面中有实际内容
+        const body = document.body;
+        return body && body.innerText && body.innerText.length > 1000;
+      }, { timeout: 20000 });
+      console.log('✓ 页面内容已加载');
+    } catch (e) {
+      console.log('⚠ 页面内容加载超时，继续尝试...');
+    }
+
+    // 等待商品链接出现（显式等待）
+    try {
+      await page.waitForSelector('a[href*="/item?id="]', { timeout: 15000 });
+      console.log('✓ 检测到商品链接');
+    } catch (e) {
+      console.log('⚠ 未检测到标准商品链接，尝试其他选择器');
+    }
+
+    // 调试：输出页面 URL 和标题
+    try {
+      const currentUrl = page.url();
+      const pageTitle = await page.title();
+      console.log(`当前页面: ${currentUrl}`);
+      console.log(`页面标题: ${pageTitle}`);
+    } catch (e) {
+      console.log('⚠ 无法获取页面信息:', e.message);
+    }
+
+    // 调试：保存捕获的 API 数据（优先保存以防崩溃）
+    const fs = require('fs');
+    if (apiData.length > 0) {
+      const apiDebugPath = __dirname + '/../output/debug-api.json';
+      fs.writeFileSync(apiDebugPath, JSON.stringify(apiData, null, 2), 'utf8');
+      console.log(`✓ 捕获 ${apiData.length} 个 API 响应，已保存到: ${apiDebugPath}`);
+
+      // 尝试从 API 数据提取商品信息
+      for (const api of apiData) {
+        if (api.data && api.data.data) {
+          const items = api.data.data.items || api.data.data.list || api.data.data;
+          if (Array.isArray(items)) {
+            console.log(`✓ 从 API 提取到 ${items.length} 个商品`);
+          }
+        }
+      }
+    } else {
+      console.log('⚠ 未捕获到 API 响应，尝试 DOM 解析...');
+    }
+
+    // 调试：保存页面 HTML 到文件用于分析
+    try {
+      const pageHtml = await page.content();
+      const debugPath = __dirname + '/../output/debug-page.html';
+      fs.writeFileSync(debugPath, pageHtml, 'utf8');
+      console.log(`页面 HTML 已保存到: ${debugPath}`);
+    } catch (e) {
+      console.log('⚠ 无法保存页面 HTML:', e.message);
+    }
 
     // 激进滚动策略
     const albums = [];
@@ -55,8 +174,12 @@ async function scrapeSeller(sellerId, browser) {
 
       // 提取当前页面的商品 - 使用更全面的选择器
       const items = await page.evaluate(() => {
-        // 尝试多种选择器策略
+        // 尝试多种选择器策略 - 优先使用实际页面结构
         const selectors = [
+          // 匹配实际页面结构（直接链接）
+          'a[href*="/item?id="]',
+          'a[href*="itemId="]',
+          'a[href*="categoryId="]',
           // Goofish/闲鱼 specific selectors
           '[class*="SearchItem"]',
           '[class*="search-item"]',
@@ -80,6 +203,10 @@ async function scrapeSeller(sellerId, browser) {
             const found = document.querySelectorAll(selector);
             if (found.length > 0) {
               allElements = allElements.concat(Array.from(found));
+              // 调试输出
+              if (typeof window !== 'undefined' && window.console) {
+                console.log(`选择器 "${selector}" 找到 ${found.length} 个元素`);
+              }
             }
           } catch (e) {
             // 忽略无效选择器
@@ -219,7 +346,14 @@ async function main() {
   // 启动浏览器
   const browser = await chromium.launch({
     headless: true,
-    args: ['--disable-blink-features=AutomationControlled']
+    args: [
+      '--disable-blink-features=AutomationControlled',
+      '--disable-dev-shm-usage',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-web-security',
+      '--disable-features=IsolateOrigins,site-per-process'
+    ]
   });
 
   try {
