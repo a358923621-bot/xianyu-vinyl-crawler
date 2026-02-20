@@ -18,8 +18,14 @@ function loadLatestReport() {
     .reverse();
 
   if (files.length > 0) {
-    const latestFile = path.join(outputDir, files[0]);
-    return JSON.parse(fs.readFileSync(latestFile, 'utf8'));
+    try {
+      const latestFile = path.join(outputDir, files[0]);
+      const content = fs.readFileSync(latestFile, 'utf8');
+      return JSON.parse(content);
+    } catch (e) {
+      console.log(`⚠️  无法读取分析报告: ${e.message}`);
+      return null;
+    }
   }
 
   return null;
@@ -33,7 +39,7 @@ function loadSellerData() {
   const result = {};
 
   const files = fs.readdirSync(outputDir)
-    .filter(f => f.endsWith('.json') && !f.startsWith('analysis_'))
+    .filter(f => f.endsWith('.json') && !f.startsWith('analysis_') && !f.startsWith('debug-'))
     .sort()
     .reverse();
 
@@ -42,11 +48,16 @@ function loadSellerData() {
   for (const file of files) {
     const sellerId = file.split('_')[0];
     if (!seenSellers.has(sellerId)) {
-      const data = JSON.parse(fs.readFileSync(path.join(outputDir, file), 'utf8'));
-      result[sellerId] = data;
-      seenSellers.add(sellerId);
+      try {
+        const content = fs.readFileSync(path.join(outputDir, file), 'utf8');
+        const data = JSON.parse(content);
+        result[sellerId] = data;
+        seenSellers.add(sellerId);
 
-      if (seenSellers.size >= 2) break;
+        if (seenSellers.size >= 2) break;
+      } catch (e) {
+        console.log(`⚠️  跳过损坏的文件: ${file} - ${e.message}`);
+      }
     }
   }
 
@@ -66,7 +77,7 @@ function formatFullReport(report, sellerData) {
 
   // 卖家数据
   for (const [id, data] of Object.entries(sellerData)) {
-    const newCount = data.new_items || 0;
+    const newCount = data.new_items || data.newItems || 0;
     lines.push(`📦 *${data.seller}*`);
     lines.push(`在售: *${data.total}* 张`);
     if (newCount > 0) {
@@ -113,7 +124,7 @@ function formatIncrementalReport(sellerData) {
   let hasNew = false;
 
   for (const [id, data] of Object.entries(sellerData)) {
-    const newCount = data.new_items || 0;
+    const newCount = data.new_items || data.newItems || 0;
 
     lines.push(`📦 *${data.seller}*`);
 
