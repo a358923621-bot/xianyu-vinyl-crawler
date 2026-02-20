@@ -11,6 +11,7 @@ const { compareAlbums, AlbumExtractor, SimilarityCalculator } = require('./compa
 
 /**
  * 查找 output 目录中指定卖家的最新数据文件
+ * 文件名格式: {sellerId}_YYYYMMDD.json 或 {sellerId}_today.json
  */
 function findLatestData(sellerId) {
   const outputDir = path.join(__dirname, '../output');
@@ -18,36 +19,52 @@ function findLatestData(sellerId) {
     throw new Error(`输出目录不存在: ${outputDir}`);
   }
 
+  // 更精确的文件名匹配: sellerId_数字.json 或 sellerId_today.json
+  const pattern = new RegExp(`^${sellerId}_(\\d{8}|today)\\.json$`);
+
   const files = fs.readdirSync(outputDir)
-    .filter(f => f.startsWith(sellerId) && f.endsWith('.json'))
+    .filter(f => pattern.test(f))
     .filter(f => !f.includes('analysis'))  // 排除分析报告
     .sort()
     .reverse();
 
   if (files.length === 0) {
-    throw new Error(`未找到 ${sellerId} 的数据文件`);
+    throw new Error(`未找到 ${sellerId} 的数据文件 (格式: ${sellerId}_YYYYMMDD.json)`);
   }
 
-  return path.join(outputDir, files[0]);
+  const filePath = path.join(outputDir, files[0]);
+
+  // 验证数据格式
+  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  if (!data.albums || !Array.isArray(data.albums)) {
+    throw new Error(`文件格式错误: ${files[0]} 缺少 albums 数组`);
+  }
+
+  return { path: filePath, data };
 }
 
 /**
  * 查找指定卖家的倒数第二个数据文件（用于历史对比）
  */
-function findPreviousData(sellerId, latestFile) {
+function findPreviousData(sellerId, latestFileName) {
   const outputDir = path.join(__dirname, '../output');
+  const pattern = new RegExp(`^${sellerId}_(\\d{8}|today)\\.json$`);
+
   const files = fs.readdirSync(outputDir)
-    .filter(f => f.startsWith(sellerId) && f.endsWith('.json'))
+    .filter(f => pattern.test(f))
     .filter(f => !f.includes('analysis'))
     .sort()
     .reverse();
 
   // 找到最新文件之后的下一个
-  const latestIndex = files.findIndex(f => f === path.basename(latestFile));
+  const latestIndex = files.findIndex(f => f === latestFileName);
   if (latestIndex >= 0 && latestIndex + 1 < files.length) {
     const prevFile = path.join(outputDir, files[latestIndex + 1]);
     try {
-      return JSON.parse(fs.readFileSync(prevFile, 'utf8'));
+      const data = JSON.parse(fs.readFileSync(prevFile, 'utf8'));
+      if (data.albums && Array.isArray(data.albums)) {
+        return data;
+      }
     } catch (e) {
       return null;
     }
@@ -58,27 +75,29 @@ function findPreviousData(sellerId, latestFile) {
 // 主函数
 function main() {
   // 查找最新的数据文件
-  const yydtPath = findLatestData('yinyuedatong');
-  const mdPath = findLatestData('mengde');
+  const yydtResult = findLatestData('yinyuedatong');
+  const mdResult = findLatestData('mengde');
 
-  console.log(`读取音乐大同数据: ${path.basename(yydtPath)}`);
-  console.log(`读取梦的采摘员数据: ${path.basename(mdPath)}`);
+  console.log(`读取音乐大同数据: ${path.basename(yydtResult.path)}`);
+  console.log(`读取梦的采摘员数据: ${path.basename(mdResult.path)}`);
 
-  // 读取数据
-  const yydtData = JSON.parse(fs.readFileSync(yydtPath, 'utf8'));
-  const mdData = JSON.parse(fs.readFileSync(mdPath, 'utf8'));
+  const yydtData = yydtResult.data;
+  const mdData = mdResult.data;
 
   // 尝试读取历史数据
-  const yydtPrevious = findPreviousData('yinyuedatong', yydtPath);
+  const yydtPrevious = findPreviousData('yinyuedatong', path.basename(yydtResult.path));
 
   const currentDate = new Date().toISOString().slice(0, 10);
+  const yydtTotal = yydtData.total || yydtData.albums?.length || 0;
+  const mdTotal = mdData.total || mdData.albums?.length || 0;
+
   console.log('='.repeat(70));
   console.log('🔍 闲鱼黑胶唱片智能对比分析');
   console.log('='.repeat(70));
-  console.log(`音乐大同: ${yydtData.total} 张`);
-  console.log(`梦的采摘员: ${mdData.total} 张`);
+  console.log(`音乐大同: ${yydtTotal} 张`);
+  console.log(`梦的采摘员: ${mdTotal} 张`);
   if (yydtPrevious) {
-    const prevTotal = yydtPrevious.total || yydtPrevious.total_for_sale || 0;
+    const prevTotal = yydtPrevious.total || yydtPrevious.total_for_sale || yydtPrevious.albums?.length || 0;
     console.log(`音乐大同 (历史): ${prevTotal} 张`);
   }
   console.log('');
@@ -228,15 +247,16 @@ function main() {
     });
 
     // 保存完整结果
+    const prevTotal = yydtPrevious ? (yydtPrevious.total || yydtPrevious.total_for_sale || yydtPrevious.albums?.length || 0) : 0;
     const finalResult = {
       date: currentDate,
       method: '智能专辑识别 v2.0',
       threshold: 0.7,
       color_aware: true,
       summary: {
-        yinyuedatong_current: yydtData.total,
-        mengde_current: mdData.total,
-        yinyuedatong_previous: yydtPrevious ? (yydtPrevious.total || yydtPrevious.total_for_sale || 0) : 0,
+        yinyuedatong_current: yydtTotal,
+        mengde_current: mdTotal,
+        yinyuedatong_previous: prevTotal,
         both_selling: highQualityMatches.length,
         yinyuedatong_sold: soldItems.length,
         mengde_exclusive: result.length
