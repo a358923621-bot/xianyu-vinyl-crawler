@@ -39,7 +39,16 @@ function loadSellerData() {
   const result = {};
 
   const files = fs.readdirSync(outputDir)
-    .filter(f => f.endsWith('.json') && !f.startsWith('analysis_') && !f.startsWith('debug-'))
+    .filter(f => {
+      // 只匹配卖家数据文件格式: {sellerId}_{date}.json
+      // 例如: yinyuedatong_20260220.json, mengde_20260220.json
+      return f.match(/^[a-z]+_\d{8}\.json$/) &&
+             !f.startsWith('analysis_') &&
+             !f.startsWith('debug-') &&
+             !f.startsWith('comparison_') &&
+             !f.startsWith('complete_') &&
+             !f.startsWith('md_');
+    })
     .sort()
     .reverse();
 

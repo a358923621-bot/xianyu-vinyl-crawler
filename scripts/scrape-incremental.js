@@ -11,15 +11,15 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 // 使用 stealth 插件隐藏自动化特征
 chromium.use(StealthPlugin());
 
-// 卖家配置
+// 卖家配置 - 使用个人主页 URL
 const SELLERS = {
   yinyuedatong: {
     name: '音乐大同',
-    url: process.env.YINYUEDATONG_URL || 'https://www.goofish.com/search?q=音乐大同&category=黑胶唱片'
+    url: process.env.YINYUEDATONG_URL || 'https://www.goofish.com/personal?userId=2219735146783'
   },
   mengde: {
     name: '梦的采摘员',
-    url: process.env.MENGDE_URL || 'https://www.goofish.com/search?q=梦的采摘员&category=黑胶唱片'
+    url: process.env.MENGDE_URL || 'https://www.goofish.com/personal?userId=1059107164'
   }
 };
 
@@ -116,13 +116,24 @@ async function scrapeIncremental(sellerId, browser) {
     const albums = [];
     const newAlbums = [];
 
-    // 只滚动20轮
-    for (let round = 0; round < 20; round++) {
-      for (let j = 0; j < 20; j++) {
-        await page.evaluate(() => window.scrollBy(0, 300));
-        await page.waitForTimeout(150);
-      }
-      await page.waitForTimeout(1000);
+    // 滚动50轮 - 使用底部滚动策略
+    for (let round = 0; round < 50; round++) {
+      // 滚动到页面底部，然后回滚一点
+      await page.evaluate(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+      await page.waitForTimeout(2000);
+
+      // 向上滚动一点，再向下滚动，触发加载
+      await page.evaluate(() => {
+        window.scrollBy(0, -500);
+      });
+      await page.waitForTimeout(500);
+
+      await page.evaluate(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+      await page.waitForTimeout(2000);
 
       const items = await page.evaluate(() => {
         // 尝试多种选择器策略 - 优先使用实际页面结构
@@ -207,6 +218,20 @@ async function scrapeIncremental(sellerId, browser) {
           if (!title || title.length < 3) return null;
           if (title.includes('首页') || title.includes('返回') || title.includes('登录')) return null;
 
+          // 过滤：只保留黑胶相关商品
+          const vinylKeywords = [
+            '黑胶', 'vinyl', 'LP', '唱片', '专辑', 'album', 'record',
+            '盘', '压', '刻录', '原声', 'soundtrack', 'ost',
+            '欧美', '流行', '摇滚', '爵士', '古典', '电子', '民谣',
+            'cd', 'CD', 'SACD', '蓝光', 'BD'
+          ];
+          const titleLower = title.toLowerCase();
+          const hasVinylKeyword = vinylKeywords.some(kw =>
+            titleLower.includes(kw.toLowerCase()) ||
+            title.includes(kw)
+          );
+          if (!hasVinylKeyword) return null;
+
           return { title, price, link };
         }).filter(item => item !== null && item.title.length > 3);
       });
@@ -227,8 +252,8 @@ async function scrapeIncremental(sellerId, browser) {
 
       console.log(`轮次 ${round + 1}: 已抓取 ${albums.length} 张, 新发现 ${newAlbums.length} 张`);
 
-      // 提前停止条件
-      if (albums.length >= 100) {
+      // 提前停止条件 - 提高到250条
+      if (albums.length >= 250) {
         break;
       }
     }
