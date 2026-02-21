@@ -80,14 +80,16 @@ jobs:
           path: output/*.json
           retention-days: 30
       
-      - name: 生成分析报告
-        run: node scripts/analyze-smart.js
-      
+      - name: 生成卖家对比报告
+        run: node scripts/compare-sellers.js
+
       - name: 上传分析报告
         uses: actions/upload-artifact@v4
         with:
           name: analysis-report-${{ github.run_number }}
-          path: output/analysis_*.json
+          path: |
+            output/analysis_*.json
+            output/comparison_*.json
           retention-days: 90
 
   scrape-incremental:

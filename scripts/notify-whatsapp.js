@@ -32,6 +32,30 @@ function loadLatestReport() {
 }
 
 /**
+ * 读取卖家对比报告
+ */
+function loadComparisonReport() {
+  const outputDir = path.join(__dirname, '../output');
+  const files = fs.readdirSync(outputDir)
+    .filter(f => f.startsWith('comparison_') && f.endsWith('.json'))
+    .sort()
+    .reverse();
+
+  if (files.length > 0) {
+    try {
+      const latestFile = path.join(outputDir, files[0]);
+      const content = fs.readFileSync(latestFile, 'utf8');
+      return JSON.parse(content);
+    } catch (e) {
+      console.log(`⚠️  无法读取对比报告: ${e.message}`);
+      return null;
+    }
+  }
+
+  return null;
+}
+
+/**
  * 读取卖家数据
  */
 function loadSellerData() {
@@ -93,6 +117,28 @@ function formatFullReport(report, sellerData) {
       lines.push(`🆕 新增: *${newCount}* 张`);
     }
     lines.push('');
+  }
+
+  // 卖家对比结果
+  const comparison = loadComparisonReport();
+  if (comparison) {
+    lines.push('🔗 *卖家对比*');
+    lines.push(`共同商品: *${comparison.overlap?.count || 0}* 张`);
+    lines.push(`音乐大同独有: *${comparison.yinyuedatong?.exclusive || 0}* 张`);
+    lines.push(`梦的采摘员独有: *${comparison.mengde?.exclusive || 0}* 张`);
+    lines.push('');
+
+    // 显示共同商品中的前5个
+    if (comparison.overlap && comparison.overlap.items && comparison.overlap.items.length > 0) {
+      lines.push('*共同商品示例*:');
+      comparison.overlap.items.slice(0, 5).forEach((item, i) => {
+        const title = item.yinyuedatong.length > 25
+          ? item.yinyuedatong.substring(0, 25) + '...'
+          : item.yinyuedatong;
+        lines.push(`${i + 1}. ${title}`);
+      });
+      lines.push('');
+    }
   }
 
   // 智能分析结果（如果有）
@@ -238,6 +284,7 @@ async function main() {
   // 读取数据
   const sellerData = loadSellerData();
   const report = loadLatestReport();
+  const comparison = loadComparisonReport();
 
   if (Object.keys(sellerData).length === 0) {
     console.log('⚠️  没有找到卖家数据');
