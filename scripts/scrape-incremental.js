@@ -218,20 +218,6 @@ async function scrapeIncremental(sellerId, browser) {
           if (!title || title.length < 3) return null;
           if (title.includes('首页') || title.includes('返回') || title.includes('登录')) return null;
 
-          // 过滤：只保留黑胶相关商品
-          const vinylKeywords = [
-            '黑胶', 'vinyl', 'LP', '唱片', '专辑', 'album', 'record',
-            '盘', '压', '刻录', '原声', 'soundtrack', 'ost',
-            '欧美', '流行', '摇滚', '爵士', '古典', '电子', '民谣',
-            'cd', 'CD', 'SACD', '蓝光', 'BD'
-          ];
-          const titleLower = title.toLowerCase();
-          const hasVinylKeyword = vinylKeywords.some(kw =>
-            titleLower.includes(kw.toLowerCase()) ||
-            title.includes(kw)
-          );
-          if (!hasVinylKeyword) return null;
-
           return { title, price, link };
         }).filter(item => item !== null && item.title.length > 3);
       });
