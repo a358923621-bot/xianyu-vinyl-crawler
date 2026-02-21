@@ -119,6 +119,36 @@ async function scrapeSeller(sellerId, browser) {
       console.log('⚠ 未检测到标准商品链接，尝试其他选择器');
     }
 
+    // 点击"在售" tab 以过滤掉已售出商品
+    try {
+      console.log('尝试点击"在售" tab...');
+
+      // 先尝试关闭可能出现的登录弹窗
+      try {
+        const modalClose = page.locator('.ant-modal-close, .close-modal, [class*="close"]').first();
+        if (await modalClose.isVisible({ timeout: 2000 })) {
+          await modalClose.click();
+          console.log('✓ 已关闭弹窗');
+          await page.waitForTimeout(500);
+        }
+      } catch (e) {
+        // 没有弹窗或关闭失败，继续
+      }
+
+      // 查找包含"在售"文本的 tab 元素并点击
+      const forSaleTab = await page.locator('text=在售').first();
+      if (await forSaleTab.isVisible({ timeout: 5000 })) {
+        // 使用 JavaScript 点击以避免被拦截
+        await forSaleTab.evaluate(el => el.click());
+        console.log('✓ 已点击"在售" tab');
+        await page.waitForTimeout(3000); // 等待内容更新
+      } else {
+        console.log('⚠ "在售" tab 不可见，可能已经在该页面');
+      }
+    } catch (e) {
+      console.log('⚠ 点击"在售" tab 失败:', e.message);
+    }
+
     // 调试：输出页面 URL 和标题
     try {
       const currentUrl = page.url();
@@ -262,9 +292,19 @@ async function scrapeSeller(sellerId, browser) {
         }).filter(item => item !== null && item.title.length > 3);
       });
 
-      // 去重并添加 - 使用商品 ID
-      const currentIds = new Set(albums.map(a => a.id));
+      // 先对 items 数组内部去重（同一商品可能有多个链接元素）
+      const uniqueItems = [];
+      const seenInThisRound = new Set();
       for (const item of items) {
+        if (!seenInThisRound.has(item.id)) {
+          uniqueItems.push(item);
+          seenInThisRound.add(item.id);
+        }
+      }
+
+      // 再与已有 albums 去重
+      const currentIds = new Set(albums.map(a => a.id));
+      for (const item of uniqueItems) {
         if (!currentIds.has(item.id)) {
           albums.push(item);
           currentIds.add(item.id);
