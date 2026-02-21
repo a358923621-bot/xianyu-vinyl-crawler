@@ -136,25 +136,10 @@ async function scrapeIncremental(sellerId, browser) {
       await page.waitForTimeout(2000);
 
       const items = await page.evaluate(() => {
-        // 尝试多种选择器策略 - 优先使用实际页面结构
+        // 只使用商品链接选择器，避免重复
         const selectors = [
-          // 匹配实际页面结构（直接链接）
-          'a[href*="/item?id="]',
-          'a[href*="itemId="]',
-          'a[href*="categoryId="]',
-          // Goofish/闲鱼 specific selectors
-          '[class*="SearchItem"]',
-          '[class*="search-item"]',
-          '[class*="CardItem"]',
-          '[class*="card-item"]',
-          '[class*="ItemCard"]',
-          '[class*="item-card"]',
-          '[class*="goods"]',
-          '[class*="product"]',
-          '[class*="Item"]',
-          '.sell-item',
-          '[data-testid*="item"]',
-          '[class*="Gm"]',
+          'a[href*="/item?id="]',  // 主要选择器
+          'a[href*="itemId="]',    // 备用
         ];
 
         let allElements = [];
@@ -163,10 +148,6 @@ async function scrapeIncremental(sellerId, browser) {
             const found = document.querySelectorAll(selector);
             if (found.length > 0) {
               allElements = allElements.concat(Array.from(found));
-              // 调试输出
-              if (typeof window !== 'undefined' && window.console) {
-                console.log(`选择器 "${selector}" 找到 ${found.length} 个元素`);
-              }
             }
           } catch (e) {
             // 忽略无效选择器
@@ -221,17 +202,19 @@ async function scrapeIncremental(sellerId, browser) {
           const elementText = el.textContent || '';
           if (elementText.includes('已售') || elementText.includes('已下架') || elementText.includes('售罄')) return null;
 
-          return { title, price, link };
+          // 提取商品 ID 用于去重
+          const itemId = link.match(/id=([^&]+)/)?.[1] || link;
+          return { title, price, link, id: itemId };
         }).filter(item => item !== null && item.title.length > 3);
       });
 
-      // 去重并检测新商品
-      const currentTitles = new Set(albums.map(a => a.title));
+      // 去重并检测新商品 - 使用商品 ID
+      const currentIds = new Set(albums.map(a => a.id));
       for (const item of items) {
-        if (!currentTitles.has(item.title)) {
+        if (!currentIds.has(item.id)) {
           const isNew = !historicalAlbums.has(item.title);
           albums.push({ ...item, isNew });
-          currentTitles.add(item.title);
+          currentIds.add(item.id);
 
           if (isNew) {
             newAlbums.push(item);
