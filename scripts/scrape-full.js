@@ -273,6 +273,9 @@ async function scrapeSeller(sellerId, browser) {
           if (!title || title.length < 3) return null;
           // 过滤掉导航菜单等非商品项
           if (title.includes('首页') || title.includes('返回') || title.includes('登录')) return null;
+          // 过滤掉已售出/已下架商品 - 检查元素文本
+          const elementText = el.textContent || '';
+          if (elementText.includes('已售') || elementText.includes('已下架') || elementText.includes('售罄')) return null;
 
           return { title, price, link };
         }).filter(item => item !== null && item.title.length > 3);
