@@ -217,8 +217,10 @@ jobs:
         with:
           name: analysis-report-${{ github.run_number }}
           path: output
-      
+        continue-on-error: true
+
       - name: 发送 WhatsApp 报告
+        if: hashFiles('output/comparison_*.json') != ''
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
