@@ -128,15 +128,18 @@ function formatFullReport(report, sellerData) {
     lines.push(`梦的采摘员独有: *${comparison.mengde?.exclusive || 0}* 张`);
     lines.push('');
 
-    // 显示共同商品中的前5个
-    if (comparison.overlap && comparison.overlap.items && comparison.overlap.items.length > 0) {
-      lines.push('*共同商品示例*:');
-      comparison.overlap.items.slice(0, 5).forEach((item, i) => {
-        const title = item.yinyuedatong.length > 25
-          ? item.yinyuedatong.substring(0, 25) + '...'
-          : item.yinyuedatong;
+    // 显示梦的采摘员独有商品（梦的采摘员在售 + 音乐大同不在售）
+    if (comparison.mengde && comparison.mengde.exclusive_items && comparison.mengde.exclusive_items.length > 0) {
+      lines.push('*梦的采摘员独有商品* (在售+音乐大同不在售):');
+      comparison.mengde.exclusive_items.slice(0, 10).forEach((item, i) => {
+        const title = item.length > 30
+          ? item.substring(0, 30) + '...'
+          : item;
         lines.push(`${i + 1}. ${title}`);
       });
+      if (comparison.mengde.exclusive > 10) {
+        lines.push(`... 还有 ${comparison.mengde.exclusive - 10} 张`);
+      }
       lines.push('');
     }
   }

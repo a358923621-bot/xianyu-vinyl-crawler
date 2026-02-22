@@ -186,7 +186,8 @@ function analyzeSellers() {
       seller: mengdeData.seller,
       scraped_at: mengdeData.scraped_at,
       total: mengdeData.total,
-      exclusive: mengdeOnly.length
+      exclusive: mengdeOnly.length,
+      exclusive_items: mengdeOnly.slice(0, 20)  // 保存前20个独有商品
     },
     overlap: {
       count: mengdeFromYydt.length,
