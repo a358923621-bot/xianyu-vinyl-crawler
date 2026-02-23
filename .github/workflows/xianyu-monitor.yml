@@ -37,7 +37,7 @@ env:
 jobs:
   scrape-full:
     name: 全量抓取
-    if: github.event_name == 'schedule' && github.event.schedule == '0 0 * * *' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'full')
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'full')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     
@@ -91,60 +91,6 @@ jobs:
             output/analysis_*.json
             output/comparison_*.json
           retention-days: 90
-
-  scrape-incremental:
-    name: 增量抓取
-    if: github.event_name == 'schedule' && github.event.schedule == '0 */12 * * *' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'incremental')
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    
-    steps:
-      - name: 检出代码
-        uses: actions/checkout@v4
-      
-      - name: 设置 Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-      
-      - name: 安装依赖
-        run: |
-          npm ci
-          npx playwright install chromium
-      
-      - name: 创建输出目录
-        run: mkdir -p output
-      
-      - name: 下载历史数据
-        uses: actions/download-artifact@v4
-        with:
-          pattern: scrape-results-*
-          path: output
-          merge-multiple: true
-        continue-on-error: true
-      
-      - name: 增量抓取
-        env:
-          SELLER_URL: ${{ secrets.YINYUEDATONG_URL }}
-        run: |
-          node scripts/scrape-incremental.js || true
-        continue-on-error: true
-      
-      - name: 对比分析
-        run: node scripts/compare-smart.js || true
-        continue-on-error: true
-      
-      - name: 发送通知
-        if: env.TWILIO_ACCOUNT_SID != ''
-        env:
-          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-          TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
-          TWILIO_WHATSAPP_TO: ${{ secrets.TWILIO_WHATSAPP_TO }}
-        run: |
-          node scripts/notify-whatsapp.js incremental || true
-        continue-on-error: true
 
   analyze-only:
     name: 仅分析
