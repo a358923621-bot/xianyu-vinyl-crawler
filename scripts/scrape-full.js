@@ -13,13 +13,13 @@ chromium.use(StealthPlugin());
 
 // 卖家配置 - 使用个人主页 URL
 const SELLERS = {
-  yinyuedatong: {
-    name: '音乐大同',
-    url: process.env.YINYUEDATONG_URL || 'https://www.goofish.com/personal?userId=2219735146783'
+  seller_a: {
+    name: '卖家A',
+    url: process.env.SELLER_A_URL || 'https://www.goofish.com/personal?userId=1234567890'
   },
-  mengde: {
-    name: '梦的采摘员',
-    url: process.env.MENGDE_URL || 'https://www.goofish.com/personal?userId=1059107164'
+  seller_b: {
+    name: '卖家B',
+    url: process.env.SELLER_B_URL || 'https://www.goofish.com/personal?userId=0987654321'
   }
 };
 

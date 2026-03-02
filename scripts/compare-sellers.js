@@ -1,6 +1,6 @@
 /**
  * 卖家商品对比分析
- * 统计梦的采摘员从音乐大同采购的商品（梦的采摘员在售 + 音乐大同已下架/售罄）
+ * 统计卖家B从卖家A采购的商品（卖家B在售 + 卖家A已下架/售罄）
  */
 
 const fs = require('fs');
@@ -108,92 +108,88 @@ function analyzeSellers() {
     return allFiles.filter(f => f.startsWith(prefix)).sort().reverse();
   };
 
-  const yydtFiles = getDateFiles('yinyuedatong_');
-  const mengdeFiles = getDateFiles('mengde_');
+  const sellerAFiles = getDateFiles('seller_a_');
+  const sellerBFiles = getDateFiles('seller_b_');
 
-  if (yydtFiles.length === 0 || mengdeFiles.length === 0) {
+  if (sellerAFiles.length === 0 || sellerBFiles.length === 0) {
     console.log('❌ 缺少卖家数据文件');
     console.log('请先运行: node scripts/scrape-full.js all');
     return;
   }
 
-  const yydtData = JSON.parse(fs.readFileSync(path.join(outputDir, yydtFiles[0]), 'utf8'));
-  const mengdeData = JSON.parse(fs.readFileSync(path.join(outputDir, mengdeFiles[0]), 'utf8'));
+  const sellerAData = JSON.parse(fs.readFileSync(path.join(outputDir, sellerAFiles[0]), 'utf8'));
+  const sellerBData = JSON.parse(fs.readFileSync(path.join(outputDir, sellerBFiles[0]), 'utf8'));
 
   console.log('='.repeat(60));
   console.log('📊 卖家商品对比分析');
   console.log('='.repeat(60));
-  console.log(`音乐大同数据: ${yydtData.seller} (${yydtData.scraped_at}) - ${yydtData.total} 张在售`);
-  console.log(`梦的采摘员数据: ${mengdeData.seller} (${mengdeData.scraped_at}) - ${mengdeData.total} 张在售`);
+  console.log(`卖家A数据: ${sellerAData.seller} (${sellerAData.scraped_at}) - ${sellerAData.total} 张在售`);
+  console.log(`卖家B数据: ${sellerBData.seller} (${sellerBData.scraped_at}) - ${sellerBData.total} 张在售`);
   console.log('');
 
-  // 统计：梦的采摘员在售但音乐大同没有的商品
-  const yydtTitles = new Set(yydtData.albums);
-  const matchedMengde = new Set();
+  // 统计：卖家B在售但卖家A没有的商品
+  const sellerATitles = new Set(sellerAData.albums);
+  const matchedSellerB = new Set();
 
-  const mengdeOnly = [];
-  const mengdeFromYydt = []; // 可能从音乐大同采购的
+  const sellerBOnly = [];
+  const sellerBFromA = []; // 可能从卖家A采购的
 
-  for (const mengdeTitle of mengdeData.albums) {
-    const match = findMatch(mengdeTitle, yydtData.albums, matchedMengde);
+  for (const sellerBTitle of sellerBData.albums) {
+    const match = findMatch(sellerBTitle, sellerAData.albums, matchedSellerB);
 
     if (match) {
-      matchedMengde.add(match.title);
+      matchedSellerB.add(match.title);
       // 记录匹配关系
-      mengdeFromYydt.push({
-        mengde: mengdeTitle,
-        yydt: match.title,
+      sellerBFromA.push({
+        sellerB: sellerBTitle,
+        sellerA: match.title,
         method: match.method
       });
     } else {
-      mengdeOnly.push(mengdeTitle);
+      sellerBOnly.push(sellerBTitle);
     }
   }
 
-  const matchedYydt = new Set(mengdeFromYydt.map(m => m.yydt));
-  const yydtOnly = yydtData.albums.filter(t => !matchedYydt.has(t));
-
-  // 分析：梦的采摘员从音乐大同采购的商品
-  // = 音乐大同之前有但现在没有的 + 梦的采摘员现在有的
-  // 这里简化为：两者共同商品中，检查音乐大同是否真的不再销售
+  const matchedSellerA = new Set(sellerBFromA.map(m => m.sellerA));
+  const sellerAOnly = sellerAData.albums.filter(t => !matchedSellerA.has(t));
 
   console.log('=== 对比结果 ===\n');
-  console.log(`共同商品: ${mengdeFromYydt.length} 张`);
-  console.log(`梦的采摘员独有: ${mengdeOnly.length} 张`);
-  console.log(`音乐大同独有: ${yydtOnly.length} 张`);
+  console.log(`共同商品: ${sellerBFromA.length} 张`);
+  console.log(`卖家B独有: ${sellerBOnly.length} 张`);
+  console.log(`卖家A独有: ${sellerAOnly.length} 张`);
   console.log('');
 
   // 输出共同商品列表
   console.log('=== 共同商品列表 ===\n');
-  mengdeFromYydt.forEach((item, i) => {
-    console.log(`${i + 1}. ${normalize(item.yydt)}`);
-    if (item.mengde !== item.yydt) {
-      console.log(`   音乐大同: ${item.yydt}`);
-      console.log(`   梦的采摘员: ${item.mengde} [${item.method}]`);
+  sellerBFromA.forEach((item, i) => {
+    console.log(`${i + 1}. ${normalize(item.sellerA)}`);
+    if (item.sellerB !== item.sellerA) {
+      console.log(`   卖家A: ${item.sellerA}`);
+      console.log(`   卖家B: ${item.sellerB} [${item.method}]`);
     }
   });
 
   // 保存对比结果
   const result = {
     analyzed_at: new Date().toISOString(),
-    yinyuedatong: {
-      seller: yydtData.seller,
-      scraped_at: yydtData.scraped_at,
-      total: yydtData.total,
-      exclusive: yydtOnly.length
+    seller_a: {
+      seller: sellerAData.seller,
+      scraped_at: sellerAData.scraped_at,
+      total: sellerAData.total,
+      exclusive: sellerAOnly.length
     },
-    mengde: {
-      seller: mengdeData.seller,
-      scraped_at: mengdeData.scraped_at,
-      total: mengdeData.total,
-      exclusive: mengdeOnly.length,
-      exclusive_items: mengdeOnly.slice(0, 20)  // 保存前20个独有商品
+    seller_b: {
+      seller: sellerBData.seller,
+      scraped_at: sellerBData.scraped_at,
+      total: sellerBData.total,
+      exclusive: sellerBOnly.length,
+      exclusive_items: sellerBOnly.slice(0, 20)  // 保存前20个独有商品
     },
     overlap: {
-      count: mengdeFromYydt.length,
-      items: mengdeFromYydt.map(m => ({
-        yinyuedatong: m.yydt,
-        mengde: m.mengde,
+      count: sellerBFromA.length,
+      items: sellerBFromA.map(m => ({
+        seller_a: m.sellerA,
+        seller_b: m.sellerB,
         match_method: m.method
       }))
     }

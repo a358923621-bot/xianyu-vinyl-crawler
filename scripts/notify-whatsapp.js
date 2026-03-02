@@ -124,21 +124,21 @@ function formatFullReport(report, sellerData) {
   if (comparison) {
     lines.push('🔗 *卖家对比*');
     lines.push(`共同商品: *${comparison.overlap?.count || 0}* 张`);
-    lines.push(`音乐大同独有: *${comparison.yinyuedatong?.exclusive || 0}* 张`);
-    lines.push(`梦的采摘员独有: *${comparison.mengde?.exclusive || 0}* 张`);
+    lines.push(`卖家A独有: *${comparison.seller_a?.exclusive || 0}* 张`);
+    lines.push(`卖家B独有: *${comparison.seller_b?.exclusive || 0}* 张`);
     lines.push('');
 
-    // 显示梦的采摘员独有商品（梦的采摘员在售 + 音乐大同不在售）
-    if (comparison.mengde && comparison.mengde.exclusive_items && comparison.mengde.exclusive_items.length > 0) {
-      lines.push('*梦的采摘员独有商品* (在售+音乐大同不在售):');
-      comparison.mengde.exclusive_items.slice(0, 10).forEach((item, i) => {
+    // 显示卖家B独有商品（卖家B在售 + 卖家A不在售）
+    if (comparison.seller_b && comparison.seller_b.exclusive_items && comparison.seller_b.exclusive_items.length > 0) {
+      lines.push('*卖家B独有商品* (在售+卖家A不在售):');
+      comparison.seller_b.exclusive_items.slice(0, 10).forEach((item, i) => {
         const title = item.length > 30
           ? item.substring(0, 30) + '...'
           : item;
         lines.push(`${i + 1}. ${title}`);
       });
-      if (comparison.mengde.exclusive > 10) {
-        lines.push(`... 还有 ${comparison.mengde.exclusive - 10} 张`);
+      if (comparison.seller_b.exclusive > 10) {
+        lines.push(`... 还有 ${comparison.seller_b.exclusive - 10} 张`);
       }
       lines.push('');
     }
@@ -148,8 +148,8 @@ function formatFullReport(report, sellerData) {
   if (report && report.summary) {
     lines.push('📈 *智能分析*');
     lines.push(`两位都在售: *${report.summary.both_selling}* 张`);
-    lines.push(`音乐大同已售: *${report.summary.yinyuedatong_sold}* 张`);
-    lines.push(`梦的采摘员独家: *${report.summary.mengde_exclusive}* 张`);
+    lines.push(`卖家A已售: *${report.summary.seller_a_sold}* 张`);
+    lines.push(`卖家B独家: *${report.summary.seller_b_exclusive}* 张`);
     lines.push('');
 
     // 高置信度匹配
